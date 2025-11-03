@@ -39,7 +39,7 @@ export interface ClientOptions {
   /**
    * Override the default base URL for the API, e.g., "https://api.example.com/v2/"
    *
-   * Defaults to process.env['ORIGINALVOICES_BASE_URL'].
+   * Defaults to process.env['ORIGINAL_VOICES_BASE_URL'].
    */
   baseURL?: string | null | undefined;
 
@@ -93,7 +93,7 @@ export interface ClientOptions {
   /**
    * Set the log level.
    *
-   * Defaults to process.env['ORIGINALVOICES_LOG'] or 'warn' if it isn't set.
+   * Defaults to process.env['ORIGINAL_VOICES_LOG'] or 'warn' if it isn't set.
    */
   logLevel?: LogLevel | undefined;
 
@@ -106,9 +106,9 @@ export interface ClientOptions {
 }
 
 /**
- * API Client for interfacing with the Originalvoices API.
+ * API Client for interfacing with the Original Voices API.
  */
-export class Originalvoices {
+export class OriginalVoices {
   apiKey: string;
 
   baseURL: string;
@@ -124,10 +124,10 @@ export class Originalvoices {
   private _options: ClientOptions;
 
   /**
-   * API Client for interfacing with the Originalvoices API.
+   * API Client for interfacing with the Original Voices API.
    *
    * @param {string | undefined} [opts.apiKey=process.env['ORIGINALVOICES_API_KEY'] ?? undefined]
-   * @param {string} [opts.baseURL=process.env['ORIGINALVOICES_BASE_URL'] ?? https://api.originalvoices.ai] - Override the default base URL for the API.
+   * @param {string} [opts.baseURL=process.env['ORIGINAL_VOICES_BASE_URL'] ?? https://api.originalvoices.ai] - Override the default base URL for the API.
    * @param {number} [opts.timeout=1 minute] - The maximum amount of time (in milliseconds) the client will wait for a response before timing out.
    * @param {MergedRequestInit} [opts.fetchOptions] - Additional `RequestInit` options to be passed to `fetch` calls.
    * @param {Fetch} [opts.fetch] - Specify a custom `fetch` function implementation.
@@ -136,13 +136,13 @@ export class Originalvoices {
    * @param {Record<string, string | undefined>} opts.defaultQuery - Default query parameters to include with every request to the API.
    */
   constructor({
-    baseURL = readEnv('ORIGINALVOICES_BASE_URL'),
+    baseURL = readEnv('ORIGINAL_VOICES_BASE_URL'),
     apiKey = readEnv('ORIGINALVOICES_API_KEY'),
     ...opts
   }: ClientOptions = {}) {
     if (apiKey === undefined) {
-      throw new Errors.OriginalvoicesError(
-        "The ORIGINALVOICES_API_KEY environment variable is missing or empty; either provide it, or instantiate the Originalvoices client with an apiKey option, like new Originalvoices({ apiKey: 'My API Key' }).",
+      throw new Errors.OriginalVoicesError(
+        "The ORIGINALVOICES_API_KEY environment variable is missing or empty; either provide it, or instantiate the OriginalVoices client with an apiKey option, like new OriginalVoices({ apiKey: 'My API Key' }).",
       );
     }
 
@@ -153,14 +153,14 @@ export class Originalvoices {
     };
 
     this.baseURL = options.baseURL!;
-    this.timeout = options.timeout ?? Originalvoices.DEFAULT_TIMEOUT /* 1 minute */;
+    this.timeout = options.timeout ?? OriginalVoices.DEFAULT_TIMEOUT /* 1 minute */;
     this.logger = options.logger ?? console;
     const defaultLogLevel = 'warn';
     // Set default logLevel early so that we can log a warning in parseLogLevel.
     this.logLevel = defaultLogLevel;
     this.logLevel =
       parseLogLevel(options.logLevel, 'ClientOptions.logLevel', this) ??
-      parseLogLevel(readEnv('ORIGINALVOICES_LOG'), "process.env['ORIGINALVOICES_LOG']", this) ??
+      parseLogLevel(readEnv('ORIGINAL_VOICES_LOG'), "process.env['ORIGINAL_VOICES_LOG']", this) ??
       defaultLogLevel;
     this.fetchOptions = options.fetchOptions;
     this.maxRetries = options.maxRetries ?? 2;
@@ -223,7 +223,7 @@ export class Originalvoices {
         if (value === null) {
           return `${encodeURIComponent(key)}=`;
         }
-        throw new Errors.OriginalvoicesError(
+        throw new Errors.OriginalVoicesError(
           `Cannot stringify type ${typeof value}; Expected string, number, boolean, or null. If you need to pass nested query parameters, you can manually encode them, e.g. { query: { 'foo[key1]': value1, 'foo[key2]': value2 } }, and please open a GitHub issue requesting better support for your use case.`,
         );
       })
@@ -695,10 +695,10 @@ export class Originalvoices {
     }
   }
 
-  static Originalvoices = this;
+  static OriginalVoices = this;
   static DEFAULT_TIMEOUT = 60000; // 1 minute
 
-  static OriginalvoicesError = Errors.OriginalvoicesError;
+  static OriginalVoicesError = Errors.OriginalVoicesError;
   static APIError = Errors.APIError;
   static APIConnectionError = Errors.APIConnectionError;
   static APIConnectionTimeoutError = Errors.APIConnectionTimeoutError;
@@ -717,9 +717,9 @@ export class Originalvoices {
   topic: API.Topic = new API.Topic(this);
 }
 
-Originalvoices.Topic = Topic;
+OriginalVoices.Topic = Topic;
 
-export declare namespace Originalvoices {
+export declare namespace OriginalVoices {
   export type RequestOptions = Opts.RequestOptions;
 
   export {
