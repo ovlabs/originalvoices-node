@@ -1,8 +1,8 @@
 {
   "name": "originalvoices",
   "version": "0.0.1",
-  "description": "The official TypeScript library for the Originalvoices API",
-  "author": "Originalvoices <>",
+  "description": "The official TypeScript library for the Original Voices API",
+  "author": "Original Voices <>",
   "types": "dist/index.d.ts",
   "main": "dist/index.js",
   "type": "commonjs",

@@ -1,8 +1,8 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { Originalvoices } from 'originalvoices';
+import { OriginalVoices } from 'originalvoices';
 
-const { stringifyQuery } = Originalvoices.prototype as any;
+const { stringifyQuery } = OriginalVoices.prototype as any;
 
 describe(stringifyQuery, () => {
   for (const [input, expected] of [

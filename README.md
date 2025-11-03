@@ -1,8 +1,8 @@
-# Originalvoices TypeScript API Library
+# Original Voices TypeScript API Library
 
 [![NPM version](<https://img.shields.io/npm/v/originalvoices.svg?label=npm%20(stable)>)](https://npmjs.org/package/originalvoices) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/originalvoices)
 
-This library provides convenient access to the Originalvoices REST API from server-side TypeScript or JavaScript.
+This library provides convenient access to the Original Voices REST API from server-side TypeScript or JavaScript.
 
 The full API of this library can be found in [api.md](api.md).
 
@@ -23,9 +23,9 @@ The full API of this library can be found in [api.md](api.md).
 
 <!-- prettier-ignore -->
 ```js
-import Originalvoices from 'originalvoices';
+import OriginalVoices from 'originalvoices';
 
-const client = new Originalvoices({
+const client = new OriginalVoices({
   apiKey: process.env['ORIGINALVOICES_API_KEY'], // This is the default and can be omitted
 });
 
@@ -40,14 +40,14 @@ This library includes TypeScript definitions for all request params and response
 
 <!-- prettier-ignore -->
 ```ts
-import Originalvoices from 'originalvoices';
+import OriginalVoices from 'originalvoices';
 
-const client = new Originalvoices({
+const client = new OriginalVoices({
   apiKey: process.env['ORIGINALVOICES_API_KEY'], // This is the default and can be omitted
 });
 
-const params: Originalvoices.TopicGenerateInsightsParams = { audience: 'REPLACE_ME', topic: 'REPLACE_ME' };
-const response: Originalvoices.TopicGenerateInsightsResponse = await client.topic.generateInsights(params);
+const params: OriginalVoices.TopicGenerateInsightsParams = { audience: 'REPLACE_ME', topic: 'REPLACE_ME' };
+const response: OriginalVoices.TopicGenerateInsightsResponse = await client.topic.generateInsights(params);
 ```
 
 Documentation for each method, request param, and response field are available in docstrings and will appear on hover in most modern editors.
@@ -63,7 +63,7 @@ a subclass of `APIError` will be thrown:
 const response = await client.topic
   .generateInsights({ audience: 'REPLACE_ME', topic: 'REPLACE_ME' })
   .catch(async (err) => {
-    if (err instanceof Originalvoices.APIError) {
+    if (err instanceof OriginalVoices.APIError) {
       console.log(err.status); // 400
       console.log(err.name); // BadRequestError
       console.log(err.headers); // {server: 'nginx', ...}
@@ -97,7 +97,7 @@ You can use the `maxRetries` option to configure or disable this:
 <!-- prettier-ignore -->
 ```js
 // Configure the default for all requests:
-const client = new Originalvoices({
+const client = new OriginalVoices({
   maxRetries: 0, // default is 2
 });
 
@@ -114,7 +114,7 @@ Requests time out after 1 minute by default. You can configure this with a `time
 <!-- prettier-ignore -->
 ```ts
 // Configure the default for all requests:
-const client = new Originalvoices({
+const client = new OriginalVoices({
   timeout: 20 * 1000, // 20 seconds (default is 1 minute)
 });
 
@@ -140,7 +140,7 @@ Unlike `.asResponse()` this method consumes the body, returning once it is parse
 
 <!-- prettier-ignore -->
 ```ts
-const client = new Originalvoices();
+const client = new OriginalVoices();
 
 const response = await client.topic
   .generateInsights({ audience: 'REPLACE_ME', topic: 'REPLACE_ME' })
@@ -165,13 +165,13 @@ console.log(response.questions);
 
 The log level can be configured in two ways:
 
-1. Via the `ORIGINALVOICES_LOG` environment variable
+1. Via the `ORIGINAL_VOICES_LOG` environment variable
 2. Using the `logLevel` client option (overrides the environment variable if set)
 
 ```ts
-import Originalvoices from 'originalvoices';
+import OriginalVoices from 'originalvoices';
 
-const client = new Originalvoices({
+const client = new OriginalVoices({
   logLevel: 'debug', // Show all log messages
 });
 ```
@@ -197,13 +197,13 @@ When providing a custom logger, the `logLevel` option still controls which messa
 below the configured level will not be sent to your logger.
 
 ```ts
-import Originalvoices from 'originalvoices';
+import OriginalVoices from 'originalvoices';
 import pino from 'pino';
 
 const logger = pino();
 
-const client = new Originalvoices({
-  logger: logger.child({ name: 'Originalvoices' }),
+const client = new OriginalVoices({
+  logger: logger.child({ name: 'OriginalVoices' }),
   logLevel: 'debug', // Send all messages to pino, allowing it to filter
 });
 ```
@@ -266,10 +266,10 @@ globalThis.fetch = fetch;
 Or pass it to the client:
 
 ```ts
-import Originalvoices from 'originalvoices';
+import OriginalVoices from 'originalvoices';
 import fetch from 'my-fetch';
 
-const client = new Originalvoices({ fetch });
+const client = new OriginalVoices({ fetch });
 ```
 
 ### Fetch options
@@ -277,9 +277,9 @@ const client = new Originalvoices({ fetch });
 If you want to set custom `fetch` options without overriding the `fetch` function, you can provide a `fetchOptions` object when instantiating the client or making a request. (Request-specific options override client options.)
 
 ```ts
-import Originalvoices from 'originalvoices';
+import OriginalVoices from 'originalvoices';
 
-const client = new Originalvoices({
+const client = new OriginalVoices({
   fetchOptions: {
     // `RequestInit` options
   },
@@ -294,11 +294,11 @@ options to requests:
 <img src="https://raw.githubusercontent.com/stainless-api/sdk-assets/refs/heads/main/node.svg" align="top" width="18" height="21"> **Node** <sup>[[docs](https://github.com/nodejs/undici/blob/main/docs/docs/api/ProxyAgent.md#example---proxyagent-with-fetch)]</sup>
 
 ```ts
-import Originalvoices from 'originalvoices';
+import OriginalVoices from 'originalvoices';
 import * as undici from 'undici';
 
 const proxyAgent = new undici.ProxyAgent('http://localhost:8888');
-const client = new Originalvoices({
+const client = new OriginalVoices({
   fetchOptions: {
     dispatcher: proxyAgent,
   },
@@ -308,9 +308,9 @@ const client = new Originalvoices({
 <img src="https://raw.githubusercontent.com/stainless-api/sdk-assets/refs/heads/main/bun.svg" align="top" width="18" height="21"> **Bun** <sup>[[docs](https://bun.sh/guides/http/proxy)]</sup>
 
 ```ts
-import Originalvoices from 'originalvoices';
+import OriginalVoices from 'originalvoices';
 
-const client = new Originalvoices({
+const client = new OriginalVoices({
   fetchOptions: {
     proxy: 'http://localhost:8888',
   },
@@ -320,10 +320,10 @@ const client = new Originalvoices({
 <img src="https://raw.githubusercontent.com/stainless-api/sdk-assets/refs/heads/main/deno.svg" align="top" width="18" height="21"> **Deno** <sup>[[docs](https://docs.deno.com/api/deno/~/Deno.createHttpClient)]</sup>
 
 ```ts
-import Originalvoices from 'npm:originalvoices';
+import OriginalVoices from 'npm:originalvoices';
 
 const httpClient = Deno.createHttpClient({ proxy: { url: 'http://localhost:8888' } });
-const client = new Originalvoices({
+const client = new OriginalVoices({
   fetchOptions: {
     client: httpClient,
   },

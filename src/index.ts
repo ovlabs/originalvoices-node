@@ -1,12 +1,12 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-export { Originalvoices as default } from './client';
+export { OriginalVoices as default } from './client';
 
 export { type Uploadable, toFile } from './core/uploads';
 export { APIPromise } from './core/api-promise';
-export { Originalvoices, type ClientOptions } from './client';
+export { OriginalVoices, type ClientOptions } from './client';
 export {
-  OriginalvoicesError,
+  OriginalVoicesError,
   APIError,
   APIConnectionError,
   APIConnectionTimeoutError,
