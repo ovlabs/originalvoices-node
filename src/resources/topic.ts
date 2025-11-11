@@ -6,16 +6,7 @@ import { RequestOptions } from '../internal/request-options';
 
 export class Topic extends APIResource {
   /**
-   * Returns topic insights including summary, questions with insights, and twin
-   * demographics
-   *
-   * @example
-   * ```ts
-   * const response = await client.topic.generateInsights({
-   *   audience: 'UK, 18-32, men interested in sports and padel',
-   *   topic: 'New Padel courts in Surrey',
-   * });
-   * ```
+   * Generate topic insights for a specific audience and topic
    */
   generateInsights(
     body: TopicGenerateInsightsParams,
@@ -25,110 +16,68 @@ export class Topic extends APIResource {
   }
 }
 
+/**
+ * Successful response with topic insights
+ */
 export interface TopicGenerateInsightsResponse {
-  questions: Array<TopicGenerateInsightsResponse.Question>;
+  questions?: Array<TopicGenerateInsightsResponse.Question>;
 
-  /**
-   * Overall summary of the topic insights
-   */
-  summary: string;
+  summary?: string;
 
-  twins: Array<TopicGenerateInsightsResponse.Twin>;
+  twins?: Array<TopicGenerateInsightsResponse.Twin>;
 }
 
 export namespace TopicGenerateInsightsResponse {
   export interface Question {
-    insights: Array<Question.Insight>;
+    insights?: Array<Question.Insight>;
 
-    /**
-     * The question that was analyzed
-     */
-    question: string;
+    question?: string;
 
-    /**
-     * The topic category
-     */
-    topic: string;
+    topic?: string;
   }
 
   export namespace Question {
     export interface Insight {
-      /**
-       * Actionable guidance
-       */
-      guidance: string;
+      guidance?: string;
 
-      /**
-       * Percentage of responses mentioning this insight
-       */
-      mentionedPercentage: number;
+      mentionedPercentage?: number;
 
-      selectAnswers: Array<Insight.SelectAnswer>;
+      selectAnswers?: Array<Insight.SelectAnswer>;
 
-      /**
-       * Insight summary
-       */
-      summary: string;
+      summary?: string;
 
-      /**
-       * Insight title
-       */
-      title: string;
+      title?: string;
     }
 
     export namespace Insight {
       export interface SelectAnswer {
-        /**
-         * Example answer illustrating the insight
-         */
-        answer: string;
+        answer?: string;
 
-        /**
-         * ID of the twin providing the answer
-         */
-        twinId: string;
+        twinId?: string;
       }
     }
   }
 
   export interface Twin {
-    /**
-     * Unique identifier for the twin
-     */
-    id: string;
+    id?: string;
 
-    demographics: Twin.Demographics;
+    demographics?: Twin.Demographics;
   }
 
   export namespace Twin {
     export interface Demographics {
-      /**
-       * Age of the twin
-       */
-      age: number;
+      age?: number;
 
-      /**
-       * Country code of the twin
-       */
-      country: string;
+      country?: string;
 
-      /**
-       * Gender of the twin
-       */
-      gender: string;
+      gender?: string;
     }
   }
 }
 
 export interface TopicGenerateInsightsParams {
-  /**
-   * The target audience description
-   */
   audience: string;
 
-  /**
-   * The topic to analyze
-   */
   topic: string;
 }
 
