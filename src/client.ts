@@ -16,6 +16,16 @@ import * as Errors from './core/error';
 import * as Uploads from './core/uploads';
 import * as API from './resources/index';
 import { APIPromise } from './core/api-promise';
+import { Ask, AskCreateParams, AskCreateResponse } from './resources/ask';
+import {
+  AudienceCreateParams,
+  AudienceCreateResponse,
+  AudienceDeleteResponse,
+  AudienceListResponse,
+  AudienceUpdateParams,
+  AudienceUpdateResponse,
+  Audiences,
+} from './resources/audiences';
 import { Topic, TopicGenerateInsightsParams, TopicGenerateInsightsResponse } from './resources/topic';
 import { type Fetch } from './internal/builtin-types';
 import { HeadersLike, NullableHeaders, buildHeaders } from './internal/headers';
@@ -715,9 +725,13 @@ export class OriginalVoices {
   static toFile = Uploads.toFile;
 
   topic: API.Topic = new API.Topic(this);
+  ask: API.Ask = new API.Ask(this);
+  audiences: API.Audiences = new API.Audiences(this);
 }
 
 OriginalVoices.Topic = Topic;
+OriginalVoices.Ask = Ask;
+OriginalVoices.Audiences = Audiences;
 
 export declare namespace OriginalVoices {
   export type RequestOptions = Opts.RequestOptions;
@@ -726,5 +740,17 @@ export declare namespace OriginalVoices {
     Topic as Topic,
     type TopicGenerateInsightsResponse as TopicGenerateInsightsResponse,
     type TopicGenerateInsightsParams as TopicGenerateInsightsParams,
+  };
+
+  export { Ask as Ask, type AskCreateResponse as AskCreateResponse, type AskCreateParams as AskCreateParams };
+
+  export {
+    Audiences as Audiences,
+    type AudienceCreateResponse as AudienceCreateResponse,
+    type AudienceUpdateResponse as AudienceUpdateResponse,
+    type AudienceListResponse as AudienceListResponse,
+    type AudienceDeleteResponse as AudienceDeleteResponse,
+    type AudienceCreateParams as AudienceCreateParams,
+    type AudienceUpdateParams as AudienceUpdateParams,
   };
 }
