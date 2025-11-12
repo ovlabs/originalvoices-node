@@ -16,69 +16,46 @@ export class Topic extends APIResource {
   }
 }
 
-/**
- * Successful response with topic insights
- */
 export interface TopicGenerateInsightsResponse {
-  questions?: Array<TopicGenerateInsightsResponse.Question>;
+  data: TopicGenerateInsightsResponse.Data;
 
-  summary?: string;
+  error: null;
 
-  twins?: Array<TopicGenerateInsightsResponse.Twin>;
+  requestId: string;
 }
 
 export namespace TopicGenerateInsightsResponse {
-  export interface Question {
-    insights?: Array<Question.Insight>;
-
-    question?: string;
-
-    topic?: string;
+  export interface Data {
+    questions: Array<Data.Question>;
   }
 
-  export namespace Question {
-    export interface Insight {
-      guidance?: string;
+  export namespace Data {
+    export interface Question {
+      question: string;
 
-      mentionedPercentage?: number;
+      summary: string;
 
-      selectAnswers?: Array<Insight.SelectAnswer>;
-
-      summary?: string;
-
-      title?: string;
+      themes: Array<Question.Theme>;
     }
 
-    export namespace Insight {
-      export interface SelectAnswer {
-        answer?: string;
+    export namespace Question {
+      export interface Theme {
+        prevalence: number;
 
-        twinId?: string;
+        summary: string;
+
+        title: string;
       }
-    }
-  }
-
-  export interface Twin {
-    id?: string;
-
-    demographics?: Twin.Demographics;
-  }
-
-  export namespace Twin {
-    export interface Demographics {
-      age?: number;
-
-      country?: string;
-
-      gender?: string;
     }
   }
 }
 
 export interface TopicGenerateInsightsParams {
-  audience: string;
-
   topic: string;
+
+  audienceId?: string;
+
+  audiencePrompt?: string;
 }
 
 export declare namespace Topic {
