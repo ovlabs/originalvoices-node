@@ -43,11 +43,8 @@ const client = new OriginalVoices({
   apiKey: process.env['ORIGINALVOICES_API_KEY'], // This is the default and can be omitted
 });
 
-const params: OriginalVoices.TopicGenerateInsightsParams = {
-  topic: 'REPLACE_ME',
-  audiencePrompt: 'REPLACE_ME',
-};
-const response: OriginalVoices.TopicGenerateInsightsResponse = await client.topic.generateInsights(params);
+const params: OriginalVoices.AskCreateParams = { question: 'REPLACE_ME', audiencePrompt: 'REPLACE_ME' };
+const ask: OriginalVoices.AskCreateResponse = await client.ask.create(params);
 ```
 
 Documentation for each method, request param, and response field are available in docstrings and will appear on hover in most modern editors.
@@ -60,8 +57,8 @@ a subclass of `APIError` will be thrown:
 
 <!-- prettier-ignore -->
 ```ts
-const response = await client.topic
-  .generateInsights({ topic: 'REPLACE_ME', audiencePrompt: 'REPLACE_ME' })
+const ask = await client.ask
+  .create({ question: 'REPLACE_ME', audiencePrompt: 'REPLACE_ME' })
   .catch(async (err) => {
     if (err instanceof OriginalVoices.APIError) {
       console.log(err.status); // 400
@@ -102,7 +99,7 @@ const client = new OriginalVoices({
 });
 
 // Or, configure per-request:
-await client.topic.generateInsights({ topic: 'REPLACE_ME', audiencePrompt: 'REPLACE_ME' }, {
+await client.ask.create({ question: 'REPLACE_ME', audiencePrompt: 'REPLACE_ME' }, {
   maxRetries: 5,
 });
 ```
@@ -119,7 +116,7 @@ const client = new OriginalVoices({
 });
 
 // Override per-request:
-await client.topic.generateInsights({ topic: 'REPLACE_ME', audiencePrompt: 'REPLACE_ME' }, {
+await client.ask.create({ question: 'REPLACE_ME', audiencePrompt: 'REPLACE_ME' }, {
   timeout: 5 * 1000,
 });
 ```
@@ -142,17 +139,17 @@ Unlike `.asResponse()` this method consumes the body, returning once it is parse
 ```ts
 const client = new OriginalVoices();
 
-const response = await client.topic
-  .generateInsights({ topic: 'REPLACE_ME', audiencePrompt: 'REPLACE_ME' })
+const response = await client.ask
+  .create({ question: 'REPLACE_ME', audiencePrompt: 'REPLACE_ME' })
   .asResponse();
 console.log(response.headers.get('X-My-Header'));
 console.log(response.statusText); // access the underlying Response object
 
-const { data: response, response: raw } = await client.topic
-  .generateInsights({ topic: 'REPLACE_ME', audiencePrompt: 'REPLACE_ME' })
+const { data: ask, response: raw } = await client.ask
+  .create({ question: 'REPLACE_ME', audiencePrompt: 'REPLACE_ME' })
   .withResponse();
 console.log(raw.headers.get('X-My-Header'));
-console.log(response.data);
+console.log(ask.data);
 ```
 
 ### Logging
