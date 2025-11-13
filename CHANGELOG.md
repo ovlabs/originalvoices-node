@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.6.0 (2025-11-13)
+
+Full Changelog: [v0.5.0...v0.6.0](https://github.com/ovlabs/originalvoices-node/compare/v0.5.0...v0.6.0)
+
+### Features
+
+* **api:** manual updates ([ec87a31](https://github.com/ovlabs/originalvoices-node/commit/ec87a3113af86dc320db5d2f53562b6e7ae914ec))
+
 ## 0.5.0 (2025-11-13)
 
 Full Changelog: [v0.4.0...v0.5.0](https://github.com/ovlabs/originalvoices-node/compare/v0.4.0...v0.5.0)
