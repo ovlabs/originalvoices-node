@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-export { Ask, type AskCreateResponse, type AskCreateParams } from './ask';
+export { Ask } from './ask';
 export {
   Audiences,
   type AudienceCreateResponse,

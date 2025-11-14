@@ -10,14 +10,6 @@ Methods:
 
 # Ask
 
-Types:
-
-- <code><a href="./src/resources/ask.ts">AskCreateResponse</a></code>
-
-Methods:
-
-- <code title="post /v1/ask">client.ask.<a href="./src/resources/ask.ts">create</a>({ ...params }) -> AskCreateResponse</code>
-
 # Audiences
 
 Types:
