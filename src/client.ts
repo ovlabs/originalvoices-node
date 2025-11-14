@@ -16,7 +16,7 @@ import * as Errors from './core/error';
 import * as Uploads from './core/uploads';
 import * as API from './resources/index';
 import { APIPromise } from './core/api-promise';
-import { Ask, AskCreateParams, AskCreateResponse } from './resources/ask';
+import { Ask } from './resources/ask';
 import {
   AudienceCreateParams,
   AudienceCreateResponse,
@@ -742,7 +742,7 @@ export declare namespace OriginalVoices {
     type TopicGenerateInsightsParams as TopicGenerateInsightsParams,
   };
 
-  export { Ask as Ask, type AskCreateResponse as AskCreateResponse, type AskCreateParams as AskCreateParams };
+  export { Ask as Ask };
 
   export {
     Audiences as Audiences,
