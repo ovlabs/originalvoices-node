@@ -7,14 +7,10 @@ const client = new OriginalVoices({
   baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
 });
 
-describe('resource ask', () => {
+describe('resource sse', () => {
   // Prism tests are disabled
-  test.skip('choices: only required params', async () => {
-    const responsePromise = client.ask.choices({
-      choices: ['x', 'x'],
-      isMultipleChoice: true,
-      question: 'x',
-    });
+  test.skip('create', async () => {
+    const responsePromise = client.mcp.sse.create();
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -25,19 +21,8 @@ describe('resource ask', () => {
   });
 
   // Prism tests are disabled
-  test.skip('choices: required and optional params', async () => {
-    const response = await client.ask.choices({
-      choices: ['x', 'x'],
-      isMultipleChoice: true,
-      question: 'x',
-      audienceId: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
-      audiencePrompt: 'audiencePrompt',
-    });
-  });
-
-  // Prism tests are disabled
-  test.skip('open: only required params', async () => {
-    const responsePromise = client.ask.open({ question: 'x' });
+  test.skip('retrieve', async () => {
+    const responsePromise = client.mcp.sse.retrieve();
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -45,14 +30,5 @@ describe('resource ask', () => {
     const dataAndResponse = await responsePromise.withResponse();
     expect(dataAndResponse.data).toBe(response);
     expect(dataAndResponse.response).toBe(rawResponse);
-  });
-
-  // Prism tests are disabled
-  test.skip('open: required and optional params', async () => {
-    const response = await client.ask.open({
-      question: 'x',
-      audienceId: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
-      audiencePrompt: 'audiencePrompt',
-    });
   });
 });

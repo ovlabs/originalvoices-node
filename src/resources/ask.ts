@@ -6,22 +6,49 @@ import { RequestOptions } from '../internal/request-options';
 
 export class Ask extends APIResource {
   /**
-   * Ask a question to a specific audience and get summary and themes
+   * Ask a choices question to the audience and get summary and themes
    */
-  create(body: AskCreateParams, options?: RequestOptions): APIPromise<AskCreateResponse> {
-    return this._client.post('/v1/ask', { body, ...options });
+  choices(body: AskChoicesParams, options?: RequestOptions): APIPromise<AskChoicesResponse> {
+    return this._client.post('/v1/ask/choices', { body, ...options });
+  }
+
+  /**
+   * Ask an open-ended question to the audience and get summary and themes
+   */
+  open(body: AskOpenParams, options?: RequestOptions): APIPromise<AskOpenResponse> {
+    return this._client.post('/v1/ask/open', { body, ...options });
   }
 }
 
-export interface AskCreateResponse {
-  data: AskCreateResponse.Data;
+export interface AskChoicesResponse {
+  data: AskChoicesResponse.Data;
+
+  requestId: string;
+}
+
+export namespace AskChoicesResponse {
+  export interface Data {
+    choices: Array<Data.Choice>;
+  }
+
+  export namespace Data {
+    export interface Choice {
+      choice: string;
+
+      percentage: number;
+    }
+  }
+}
+
+export interface AskOpenResponse {
+  data: AskOpenResponse.Data;
 
   error: null;
 
   requestId: string;
 }
 
-export namespace AskCreateResponse {
+export namespace AskOpenResponse {
   export interface Data {
     summary: string;
 
@@ -39,7 +66,19 @@ export namespace AskCreateResponse {
   }
 }
 
-export interface AskCreateParams {
+export interface AskChoicesParams {
+  choices: Array<string>;
+
+  isMultipleChoice: boolean;
+
+  question: string;
+
+  audienceId?: string;
+
+  audiencePrompt?: string;
+}
+
+export interface AskOpenParams {
   question: string;
 
   audienceId?: string;
@@ -48,5 +87,10 @@ export interface AskCreateParams {
 }
 
 export declare namespace Ask {
-  export { type AskCreateResponse as AskCreateResponse, type AskCreateParams as AskCreateParams };
+  export {
+    type AskChoicesResponse as AskChoicesResponse,
+    type AskOpenResponse as AskOpenResponse,
+    type AskChoicesParams as AskChoicesParams,
+    type AskOpenParams as AskOpenParams,
+  };
 }

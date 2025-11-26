@@ -16,7 +16,7 @@ import * as Errors from './core/error';
 import * as Uploads from './core/uploads';
 import * as API from './resources/index';
 import { APIPromise } from './core/api-promise';
-import { Ask, AskCreateParams, AskCreateResponse } from './resources/ask';
+import { Ask, AskChoicesParams, AskChoicesResponse, AskOpenParams, AskOpenResponse } from './resources/ask';
 import {
   AudienceCreateParams,
   AudienceCreateResponse,
@@ -27,6 +27,7 @@ import {
   Audiences,
 } from './resources/audiences';
 import { Topic, TopicGenerateInsightsParams, TopicGenerateInsightsResponse } from './resources/topic';
+import { Mcp } from './resources/mcp/mcp';
 import { type Fetch } from './internal/builtin-types';
 import { HeadersLike, NullableHeaders, buildHeaders } from './internal/headers';
 import { FinalRequestOptions, RequestOptions } from './internal/request-options';
@@ -727,11 +728,13 @@ export class OriginalVoices {
   topic: API.Topic = new API.Topic(this);
   ask: API.Ask = new API.Ask(this);
   audiences: API.Audiences = new API.Audiences(this);
+  mcp: API.Mcp = new API.Mcp(this);
 }
 
 OriginalVoices.Topic = Topic;
 OriginalVoices.Ask = Ask;
 OriginalVoices.Audiences = Audiences;
+OriginalVoices.Mcp = Mcp;
 
 export declare namespace OriginalVoices {
   export type RequestOptions = Opts.RequestOptions;
@@ -742,7 +745,13 @@ export declare namespace OriginalVoices {
     type TopicGenerateInsightsParams as TopicGenerateInsightsParams,
   };
 
-  export { Ask as Ask, type AskCreateResponse as AskCreateResponse, type AskCreateParams as AskCreateParams };
+  export {
+    Ask as Ask,
+    type AskChoicesResponse as AskChoicesResponse,
+    type AskOpenResponse as AskOpenResponse,
+    type AskChoicesParams as AskChoicesParams,
+    type AskOpenParams as AskOpenParams,
+  };
 
   export {
     Audiences as Audiences,
@@ -753,4 +762,6 @@ export declare namespace OriginalVoices {
     type AudienceCreateParams as AudienceCreateParams,
     type AudienceUpdateParams as AudienceUpdateParams,
   };
+
+  export { Mcp as Mcp };
 }

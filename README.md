@@ -47,12 +47,12 @@ const client = new OriginalVoices({
   apiKey: process.env['ORIGINALVOICES_API_KEY'], // This is the default and can be omitted
 });
 
-const params: OriginalVoices.AskCreateParams = {
+const params: OriginalVoices.AskOpenParams = {
   question: 'YOUR_QUESTION',
   audienceId: 'ID_OF_AUDIENCE',
   audiencePrompt: 'DESCRIPTION_OF_AUDIENCE',
 };
-const ask: OriginalVoices.AskCreateResponse = await client.ask.create(params);
+const response: OriginalVoices.AskOpenResponse = await client.ask.open(params);
 ```
 
 Documentation for each method, request param, and response field are available in docstrings and will appear on hover in most modern editors.
@@ -65,8 +65,8 @@ a subclass of `APIError` will be thrown:
 
 <!-- prettier-ignore -->
 ```ts
-const ask = await client.ask
-  .create({
+const response = await client.ask
+  .open({
     question: 'YOUR_QUESTION',
     audienceId: 'ID_OF_AUDIENCE',
     audiencePrompt: 'DESCRIPTION_OF_AUDIENCE',
@@ -111,7 +111,7 @@ const client = new OriginalVoices({
 });
 
 // Or, configure per-request:
-await client.ask.create({ question: 'YOUR_QUESTION', audienceId: 'ID_OF_AUDIENCE', audiencePrompt: 'DESCRIPTION_OF_AUDIENCE' }, {
+await client.ask.open({ question: 'YOUR_QUESTION', audienceId: 'ID_OF_AUDIENCE', audiencePrompt: 'DESCRIPTION_OF_AUDIENCE' }, {
   maxRetries: 5,
 });
 ```
@@ -128,7 +128,7 @@ const client = new OriginalVoices({
 });
 
 // Override per-request:
-await client.ask.create({ question: 'YOUR_QUESTION', audienceId: 'ID_OF_AUDIENCE', audiencePrompt: 'DESCRIPTION_OF_AUDIENCE' }, {
+await client.ask.open({ question: 'YOUR_QUESTION', audienceId: 'ID_OF_AUDIENCE', audiencePrompt: 'DESCRIPTION_OF_AUDIENCE' }, {
   timeout: 5 * 1000,
 });
 ```
@@ -152,7 +152,7 @@ Unlike `.asResponse()` this method consumes the body, returning once it is parse
 const client = new OriginalVoices();
 
 const response = await client.ask
-  .create({
+  .open({
     question: 'YOUR_QUESTION',
     audienceId: 'ID_OF_AUDIENCE',
     audiencePrompt: 'DESCRIPTION_OF_AUDIENCE',
@@ -161,15 +161,15 @@ const response = await client.ask
 console.log(response.headers.get('X-My-Header'));
 console.log(response.statusText); // access the underlying Response object
 
-const { data: ask, response: raw } = await client.ask
-  .create({
+const { data: response, response: raw } = await client.ask
+  .open({
     question: 'YOUR_QUESTION',
     audienceId: 'ID_OF_AUDIENCE',
     audiencePrompt: 'DESCRIPTION_OF_AUDIENCE',
   })
   .withResponse();
 console.log(raw.headers.get('X-My-Header'));
-console.log(ask.data);
+console.log(response.data);
 ```
 
 ### Logging
