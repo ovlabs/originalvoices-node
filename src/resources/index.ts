@@ -1,6 +1,12 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-export { Ask } from './ask';
+export {
+  Ask,
+  type AskChoicesResponse,
+  type AskOpenResponse,
+  type AskChoicesParams,
+  type AskOpenParams,
+} from './ask';
 export {
   Audiences,
   type AudienceCreateResponse,
@@ -10,4 +16,5 @@ export {
   type AudienceCreateParams,
   type AudienceUpdateParams,
 } from './audiences';
+export { Mcp } from './mcp/mcp';
 export { Topic, type TopicGenerateInsightsResponse, type TopicGenerateInsightsParams } from './topic';
