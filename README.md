@@ -47,8 +47,12 @@ const client = new OriginalVoices({
   apiKey: process.env['ORIGINALVOICES_API_KEY'], // This is the default and can be omitted
 });
 
-const params: OriginalVoices.TopicGenerateInsightsParams = { topic: 'x' };
-const response: OriginalVoices.TopicGenerateInsightsResponse = await client.topic.generateInsights(params);
+const params: OriginalVoices.AskOpenParams = {
+  question: 'YOUR_QUESTION',
+  audienceId: 'ID_OF_AUDIENCE',
+  audiencePrompt: 'DESCRIPTION_OF_AUDIENCE',
+};
+const response: OriginalVoices.AskOpenResponse = await client.ask.open(params);
 ```
 
 Documentation for each method, request param, and response field are available in docstrings and will appear on hover in most modern editors.
@@ -61,15 +65,21 @@ a subclass of `APIError` will be thrown:
 
 <!-- prettier-ignore -->
 ```ts
-const response = await client.topic.generateInsights({ topic: 'x' }).catch(async (err) => {
-  if (err instanceof OriginalVoices.APIError) {
-    console.log(err.status); // 400
-    console.log(err.name); // BadRequestError
-    console.log(err.headers); // {server: 'nginx', ...}
-  } else {
-    throw err;
-  }
-});
+const response = await client.ask
+  .open({
+    question: 'YOUR_QUESTION',
+    audienceId: 'ID_OF_AUDIENCE',
+    audiencePrompt: 'DESCRIPTION_OF_AUDIENCE',
+  })
+  .catch(async (err) => {
+    if (err instanceof OriginalVoices.APIError) {
+      console.log(err.status); // 400
+      console.log(err.name); // BadRequestError
+      console.log(err.headers); // {server: 'nginx', ...}
+    } else {
+      throw err;
+    }
+  });
 ```
 
 Error codes are as follows:
@@ -101,7 +111,7 @@ const client = new OriginalVoices({
 });
 
 // Or, configure per-request:
-await client.topic.generateInsights({ topic: 'x' }, {
+await client.ask.open({ question: 'YOUR_QUESTION', audienceId: 'ID_OF_AUDIENCE', audiencePrompt: 'DESCRIPTION_OF_AUDIENCE' }, {
   maxRetries: 5,
 });
 ```
@@ -118,7 +128,7 @@ const client = new OriginalVoices({
 });
 
 // Override per-request:
-await client.topic.generateInsights({ topic: 'x' }, {
+await client.ask.open({ question: 'YOUR_QUESTION', audienceId: 'ID_OF_AUDIENCE', audiencePrompt: 'DESCRIPTION_OF_AUDIENCE' }, {
   timeout: 5 * 1000,
 });
 ```
@@ -141,11 +151,23 @@ Unlike `.asResponse()` this method consumes the body, returning once it is parse
 ```ts
 const client = new OriginalVoices();
 
-const response = await client.topic.generateInsights({ topic: 'x' }).asResponse();
+const response = await client.ask
+  .open({
+    question: 'YOUR_QUESTION',
+    audienceId: 'ID_OF_AUDIENCE',
+    audiencePrompt: 'DESCRIPTION_OF_AUDIENCE',
+  })
+  .asResponse();
 console.log(response.headers.get('X-My-Header'));
 console.log(response.statusText); // access the underlying Response object
 
-const { data: response, response: raw } = await client.topic.generateInsights({ topic: 'x' }).withResponse();
+const { data: response, response: raw } = await client.ask
+  .open({
+    question: 'YOUR_QUESTION',
+    audienceId: 'ID_OF_AUDIENCE',
+    audiencePrompt: 'DESCRIPTION_OF_AUDIENCE',
+  })
+  .withResponse();
 console.log(raw.headers.get('X-My-Header'));
 console.log(response.data);
 ```
