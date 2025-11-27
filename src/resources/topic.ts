@@ -27,6 +27,8 @@ export interface TopicGenerateInsightsResponse {
 export namespace TopicGenerateInsightsResponse {
   export interface Data {
     questions: Array<Data.Question>;
+
+    summary: string;
   }
 
   export namespace Data {
