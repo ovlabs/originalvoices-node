@@ -26,8 +26,8 @@ const client = new OriginalVoices({
   apiKey: process.env['ORIGINALVOICES_API_KEY'], // This is the default and can be omitted
 });
 
-const response = await client.topic.generateInsights({
-  topic: 'REPLACE_ME',
+const response = await client.ask.open({
+  question: 'YOUR_QUESTION',
   audienceId: 'ID_OF_AUDIENCE',
   audiencePrompt: 'DESCRIPTION_OF_AUDIENCE',
 });
@@ -249,7 +249,7 @@ parameter. This library doesn't validate at runtime that the request matches the
 send will be sent as-is.
 
 ```ts
-client.topic.generateInsights({
+client.ask.open({
   // ...
   // @ts-expect-error baz is not yet public
   baz: 'undocumented option',

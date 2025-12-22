@@ -13,7 +13,7 @@ export class Ask extends APIResource {
   }
 
   /**
-   * Ask an open-ended question to the audience and get summary and themes
+   * Ask an open-ended question to the audience and get raw answers
    */
   open(body: AskOpenParams, options?: RequestOptions): APIPromise<AskOpenResponse> {
     return this._client.post('/v1/ask/open', { body, ...options });
@@ -50,18 +50,14 @@ export interface AskOpenResponse {
 
 export namespace AskOpenResponse {
   export interface Data {
-    summary: string;
-
-    themes: Array<Data.Theme>;
+    answers: Array<Data.Answer>;
   }
 
   export namespace Data {
-    export interface Theme {
-      prevalence: number;
+    export interface Answer {
+      ableToAnswer: boolean;
 
-      summary: string;
-
-      title: string;
+      answer: string;
     }
   }
 }
