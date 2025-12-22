@@ -17,4 +17,4 @@ export {
   type AudienceUpdateParams,
 } from './audiences';
 export { Mcp } from './mcp/mcp';
-export { Topic, type TopicGenerateInsightsResponse, type TopicGenerateInsightsParams } from './topic';
+export { Topic } from './topic';

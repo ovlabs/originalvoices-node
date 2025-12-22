@@ -26,7 +26,7 @@ import {
   AudienceUpdateResponse,
   Audiences,
 } from './resources/audiences';
-import { Topic, TopicGenerateInsightsParams, TopicGenerateInsightsResponse } from './resources/topic';
+import { Topic } from './resources/topic';
 import { Mcp } from './resources/mcp/mcp';
 import { type Fetch } from './internal/builtin-types';
 import { HeadersLike, NullableHeaders, buildHeaders } from './internal/headers';
@@ -739,11 +739,7 @@ OriginalVoices.Mcp = Mcp;
 export declare namespace OriginalVoices {
   export type RequestOptions = Opts.RequestOptions;
 
-  export {
-    Topic as Topic,
-    type TopicGenerateInsightsResponse as TopicGenerateInsightsResponse,
-    type TopicGenerateInsightsParams as TopicGenerateInsightsParams,
-  };
+  export { Topic as Topic };
 
   export {
     Ask as Ask,
