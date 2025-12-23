@@ -1,5 +1,29 @@
 # Changelog
 
+## 0.9.0 (2025-12-23)
+
+Full Changelog: [v0.8.0...v0.9.0](https://github.com/ovlabs/originalvoices-node/compare/v0.8.0...v0.9.0)
+
+### Features
+
+* **api:** api update ([8d292d5](https://github.com/ovlabs/originalvoices-node/commit/8d292d5d977e69aefa936ad3e2aefbe931312b4d))
+* **api:** manual updates ([57c4d35](https://github.com/ovlabs/originalvoices-node/commit/57c4d3590ed4a3b5dd46131b9408c58e5f23c571))
+
+
+### Bug Fixes
+
+* **mcp:** correct code tool API endpoint ([af45f37](https://github.com/ovlabs/originalvoices-node/commit/af45f37a824cb12739bca1b9479bd066b3e8eb52))
+* **mcp:** return correct lines on typescript errors ([15dc701](https://github.com/ovlabs/originalvoices-node/commit/15dc7012fba27fc04252767379fc279fca469f24))
+
+
+### Chores
+
+* **client:** fix logger property type ([24b9f97](https://github.com/ovlabs/originalvoices-node/commit/24b9f97b15053734f15728e32f7fd04e2f3c2436))
+* **internal:** codegen related update ([ec22829](https://github.com/ovlabs/originalvoices-node/commit/ec22829c1d08e75efc08f5ec6f7ae07c094b99ed))
+* **internal:** codegen related update ([fe3566d](https://github.com/ovlabs/originalvoices-node/commit/fe3566d196c8d888f5ef7fdbbec171ba94462b3e))
+* **internal:** configure pnpm minimumReleaseAge to 1 day ([55decab](https://github.com/ovlabs/originalvoices-node/commit/55decabb5ddba3d57bed197964068be0acfc2d98))
+* **internal:** upgrade eslint ([2db9926](https://github.com/ovlabs/originalvoices-node/commit/2db9926dae93b27a78a67e23f4fb5251e3012f4f))
+
 ## 0.8.0 (2025-11-27)
 
 Full Changelog: [v0.7.0...v0.8.0](https://github.com/ovlabs/originalvoices-node/compare/v0.7.0...v0.8.0)

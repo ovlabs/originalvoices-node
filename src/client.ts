@@ -26,7 +26,6 @@ import {
   AudienceUpdateResponse,
   Audiences,
 } from './resources/audiences';
-import { Topic, TopicGenerateInsightsParams, TopicGenerateInsightsResponse } from './resources/topic';
 import { Mcp } from './resources/mcp/mcp';
 import { type Fetch } from './internal/builtin-types';
 import { HeadersLike, NullableHeaders, buildHeaders } from './internal/headers';
@@ -125,7 +124,7 @@ export class OriginalVoices {
   baseURL: string;
   maxRetries: number;
   timeout: number;
-  logger: Logger | undefined;
+  logger: Logger;
   logLevel: LogLevel | undefined;
   fetchOptions: MergedRequestInit | undefined;
 
@@ -725,25 +724,17 @@ export class OriginalVoices {
 
   static toFile = Uploads.toFile;
 
-  topic: API.Topic = new API.Topic(this);
   ask: API.Ask = new API.Ask(this);
   audiences: API.Audiences = new API.Audiences(this);
   mcp: API.Mcp = new API.Mcp(this);
 }
 
-OriginalVoices.Topic = Topic;
 OriginalVoices.Ask = Ask;
 OriginalVoices.Audiences = Audiences;
 OriginalVoices.Mcp = Mcp;
 
 export declare namespace OriginalVoices {
   export type RequestOptions = Opts.RequestOptions;
-
-  export {
-    Topic as Topic,
-    type TopicGenerateInsightsResponse as TopicGenerateInsightsResponse,
-    type TopicGenerateInsightsParams as TopicGenerateInsightsParams,
-  };
 
   export {
     Ask as Ask,
