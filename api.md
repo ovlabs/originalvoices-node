@@ -1,5 +1,3 @@
-# Topic
-
 # Ask
 
 Types:
