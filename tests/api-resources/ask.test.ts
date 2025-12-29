@@ -32,6 +32,7 @@ describe('resource ask', () => {
       question: 'x',
       audienceId: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
       audiencePrompt: 'audiencePrompt',
+      sampleSize: 'low',
     });
   });
 
@@ -53,6 +54,7 @@ describe('resource ask', () => {
       question: 'x',
       audienceId: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
       audiencePrompt: 'audiencePrompt',
+      sampleSize: 'low',
     });
   });
 });

@@ -72,6 +72,8 @@ export interface AskChoicesParams {
   audienceId?: string;
 
   audiencePrompt?: string;
+
+  sampleSize?: 'low' | 'medium' | 'high';
 }
 
 export interface AskOpenParams {
@@ -80,6 +82,8 @@ export interface AskOpenParams {
   audienceId?: string;
 
   audiencePrompt?: string;
+
+  sampleSize?: 'low' | 'medium' | 'high';
 }
 
 export declare namespace Ask {
