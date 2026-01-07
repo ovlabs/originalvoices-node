@@ -120,7 +120,11 @@ const client = new OriginalVoices({
 });
 
 // Or, configure per-request:
-await client.ask.open({ question: 'YOUR_QUESTION', audienceId: 'ID_OF_AUDIENCE', audiencePrompt: 'DESCRIPTION_OF_AUDIENCE' }, {
+await client.ask.open({
+  question: 'YOUR_QUESTION',
+  audienceId: 'ID_OF_AUDIENCE',
+  audiencePrompt: 'DESCRIPTION_OF_AUDIENCE',
+}, {
   maxRetries: 5,
 });
 ```
@@ -137,7 +141,11 @@ const client = new OriginalVoices({
 });
 
 // Override per-request:
-await client.ask.open({ question: 'YOUR_QUESTION', audienceId: 'ID_OF_AUDIENCE', audiencePrompt: 'DESCRIPTION_OF_AUDIENCE' }, {
+await client.ask.open({
+  question: 'YOUR_QUESTION',
+  audienceId: 'ID_OF_AUDIENCE',
+  audiencePrompt: 'DESCRIPTION_OF_AUDIENCE',
+}, {
   timeout: 5 * 1000,
 });
 ```
