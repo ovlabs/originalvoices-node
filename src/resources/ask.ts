@@ -55,8 +55,6 @@ export namespace AskOpenResponse {
 
   export namespace Data {
     export interface Answer {
-      ableToAnswer: boolean;
-
       answer: string;
     }
   }
