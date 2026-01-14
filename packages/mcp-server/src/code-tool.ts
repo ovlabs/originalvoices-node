@@ -14,9 +14,9 @@ For example:
 \`\`\`
 async function run(client) {
   const response = await client.ask.open({
-    question: 'YOUR_QUESTION',
     audienceId: 'ID_OF_AUDIENCE',
     audiencePrompt: 'DESCRIPTION_OF_AUDIENCE',
+    question: 'YOUR_QUESTION',
   });
 
   console.log(response.data);
