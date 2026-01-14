@@ -1,5 +1,41 @@
 # Changelog
 
+## 0.10.0 (2026-01-14)
+
+Full Changelog: [v0.9.0...v0.10.0](https://github.com/ovlabs/originalvoices-node/compare/v0.9.0...v0.10.0)
+
+### Features
+
+* **api:** api update ([2a04d13](https://github.com/ovlabs/originalvoices-node/commit/2a04d13266c390f9078a542ef65f74c459d4991d))
+* **api:** api update ([a89eddd](https://github.com/ovlabs/originalvoices-node/commit/a89eddd3a2bbd5d245893d15a5eaec4776c627a4))
+* **api:** api update ([6699e70](https://github.com/ovlabs/originalvoices-node/commit/6699e707b69972a8f61df026f6904d67148178b9))
+
+
+### Bug Fixes
+
+* **mcp:** correct code tool api output types ([21bc2c3](https://github.com/ovlabs/originalvoices-node/commit/21bc2c3a3717fe41cd9725134c0ee2cad139420e))
+* **mcp:** fix env parsing ([70f7ca1](https://github.com/ovlabs/originalvoices-node/commit/70f7ca1a8a6d8b587e3a9593b2282897b2225175))
+* **mcp:** fix options parsing ([87084b6](https://github.com/ovlabs/originalvoices-node/commit/87084b61e2edafaffd87f09c44b718f107a27b30))
+* **mcp:** update code tool prompt ([cece397](https://github.com/ovlabs/originalvoices-node/commit/cece397c1753a0fcbb8eac2f11cadf390dabd176))
+
+
+### Chores
+
+* break long lines in snippets into multiline ([01e7337](https://github.com/ovlabs/originalvoices-node/commit/01e7337b809740a21361452833edf155e3bdb98e))
+* configure new SDK language ([c1bb8a4](https://github.com/ovlabs/originalvoices-node/commit/c1bb8a4713b5297b595fe263254b71b8476056ff))
+* **internal:** codegen related update ([ea70002](https://github.com/ovlabs/originalvoices-node/commit/ea70002ab7dfbd4e38cc9da49c458c84193c145d))
+* **internal:** codegen related update ([20f0032](https://github.com/ovlabs/originalvoices-node/commit/20f00325efec71fde876b5a935017fc058a6e6d4))
+* **internal:** codegen related update ([f295b86](https://github.com/ovlabs/originalvoices-node/commit/f295b860801b086f60320ee8020f5dc4f183fa98))
+* **internal:** codegen related update ([dc87e47](https://github.com/ovlabs/originalvoices-node/commit/dc87e47139164eaa8ac5d912a26acc07a0629783))
+* **internal:** codegen related update ([4c5edc0](https://github.com/ovlabs/originalvoices-node/commit/4c5edc0aee2b9dfd01ade1b06b256eecefe63b45))
+* **internal:** configure MCP Server hosting ([dc0ab12](https://github.com/ovlabs/originalvoices-node/commit/dc0ab12a595941db3880c03c4b89074ca264a219))
+* **internal:** fix dockerfile ([e366e38](https://github.com/ovlabs/originalvoices-node/commit/e366e387c0e43f277ae3bbe08b37a90f5c682a86))
+
+
+### Documentation
+
+* prominently feature MCP server setup in root SDK readmes ([e878ae0](https://github.com/ovlabs/originalvoices-node/commit/e878ae0ec88bee9d08ad9da48830dc108f665397))
+
 ## 0.9.0 (2025-12-23)
 
 Full Changelog: [v0.8.0...v0.9.0](https://github.com/ovlabs/originalvoices-node/compare/v0.8.0...v0.9.0)

@@ -32,12 +32,13 @@ describe('resource ask', () => {
       question: 'x',
       audienceId: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
       audiencePrompt: 'audiencePrompt',
+      sampleSize: 'low',
     });
   });
 
   // Prism tests are disabled
-  test.skip('open: only required params', async () => {
-    const responsePromise = client.ask.open({ question: 'x' });
+  test.skip('open', async () => {
+    const responsePromise = client.ask.open();
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -48,11 +49,19 @@ describe('resource ask', () => {
   });
 
   // Prism tests are disabled
-  test.skip('open: required and optional params', async () => {
-    const response = await client.ask.open({
-      question: 'x',
-      audienceId: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
-      audiencePrompt: 'audiencePrompt',
-    });
+  test.skip('open: request options and params are passed correctly', async () => {
+    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
+    await expect(
+      client.ask.open(
+        {
+          audienceId: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
+          audiencePrompt: 'audiencePrompt',
+          question: 'x',
+          questions: ['x'],
+          sampleSize: 'low',
+        },
+        { path: '/_stainless_unknown_path' },
+      ),
+    ).rejects.toThrow(OriginalVoices.NotFoundError);
   });
 });

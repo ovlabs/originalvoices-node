@@ -15,7 +15,7 @@ export class Ask extends APIResource {
   /**
    * Ask an open-ended question to the audience and get raw answers
    */
-  open(body: AskOpenParams, options?: RequestOptions): APIPromise<AskOpenResponse> {
+  open(body: AskOpenParams | null | undefined = {}, options?: RequestOptions): APIPromise<AskOpenResponse> {
     return this._client.post('/v1/ask/open', { body, ...options });
   }
 }
@@ -55,8 +55,6 @@ export namespace AskOpenResponse {
 
   export namespace Data {
     export interface Answer {
-      ableToAnswer: boolean;
-
       answer: string;
     }
   }
@@ -72,14 +70,20 @@ export interface AskChoicesParams {
   audienceId?: string;
 
   audiencePrompt?: string;
+
+  sampleSize?: 'low' | 'medium' | 'high';
 }
 
 export interface AskOpenParams {
-  question: string;
-
   audienceId?: string;
 
   audiencePrompt?: string;
+
+  question?: string;
+
+  questions?: Array<string>;
+
+  sampleSize?: 'low' | 'medium' | 'high';
 }
 
 export declare namespace Ask {
