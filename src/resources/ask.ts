@@ -50,12 +50,14 @@ export interface AskOpenResponse {
 
 export namespace AskOpenResponse {
   export interface Data {
-    answers: Array<Data.Answer>;
+    answers: Array<Array<Data.Answer>>;
   }
 
   export namespace Data {
     export interface Answer {
       answer: string;
+
+      confidence: number;
     }
   }
 }
