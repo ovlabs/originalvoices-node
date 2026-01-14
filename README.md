@@ -36,9 +36,9 @@ const client = new OriginalVoices({
 });
 
 const response = await client.ask.open({
-  question: 'YOUR_QUESTION',
   audienceId: 'ID_OF_AUDIENCE',
   audiencePrompt: 'DESCRIPTION_OF_AUDIENCE',
+  question: 'YOUR_QUESTION',
 });
 
 console.log(response.data);
@@ -57,9 +57,9 @@ const client = new OriginalVoices({
 });
 
 const params: OriginalVoices.AskOpenParams = {
-  question: 'YOUR_QUESTION',
   audienceId: 'ID_OF_AUDIENCE',
   audiencePrompt: 'DESCRIPTION_OF_AUDIENCE',
+  question: 'YOUR_QUESTION',
 };
 const response: OriginalVoices.AskOpenResponse = await client.ask.open(params);
 ```
@@ -76,9 +76,9 @@ a subclass of `APIError` will be thrown:
 ```ts
 const response = await client.ask
   .open({
-    question: 'YOUR_QUESTION',
     audienceId: 'ID_OF_AUDIENCE',
     audiencePrompt: 'DESCRIPTION_OF_AUDIENCE',
+    question: 'YOUR_QUESTION',
   })
   .catch(async (err) => {
     if (err instanceof OriginalVoices.APIError) {
@@ -121,9 +121,9 @@ const client = new OriginalVoices({
 
 // Or, configure per-request:
 await client.ask.open({
-  question: 'YOUR_QUESTION',
   audienceId: 'ID_OF_AUDIENCE',
   audiencePrompt: 'DESCRIPTION_OF_AUDIENCE',
+  question: 'YOUR_QUESTION',
 }, {
   maxRetries: 5,
 });
@@ -142,9 +142,9 @@ const client = new OriginalVoices({
 
 // Override per-request:
 await client.ask.open({
-  question: 'YOUR_QUESTION',
   audienceId: 'ID_OF_AUDIENCE',
   audiencePrompt: 'DESCRIPTION_OF_AUDIENCE',
+  question: 'YOUR_QUESTION',
 }, {
   timeout: 5 * 1000,
 });
@@ -170,9 +170,9 @@ const client = new OriginalVoices();
 
 const response = await client.ask
   .open({
-    question: 'YOUR_QUESTION',
     audienceId: 'ID_OF_AUDIENCE',
     audiencePrompt: 'DESCRIPTION_OF_AUDIENCE',
+    question: 'YOUR_QUESTION',
   })
   .asResponse();
 console.log(response.headers.get('X-My-Header'));
@@ -180,9 +180,9 @@ console.log(response.statusText); // access the underlying Response object
 
 const { data: response, response: raw } = await client.ask
   .open({
-    question: 'YOUR_QUESTION',
     audienceId: 'ID_OF_AUDIENCE',
     audiencePrompt: 'DESCRIPTION_OF_AUDIENCE',
+    question: 'YOUR_QUESTION',
   })
   .withResponse();
 console.log(raw.headers.get('X-My-Header'));
