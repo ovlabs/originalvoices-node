@@ -1,5 +1,25 @@
 # Changelog
 
+## 0.11.1 (2026-01-17)
+
+Full Changelog: [v0.11.0...v0.11.1](https://github.com/ovlabs/originalvoices-node/compare/v0.11.0...v0.11.1)
+
+### Bug Fixes
+
+* flag defaults ([2119a06](https://github.com/ovlabs/originalvoices-node/commit/2119a063e442d0eaf70f42ef6ecb8cd228bf674c))
+
+
+### Chores
+
+* **internal:** codegen related update ([da312cc](https://github.com/ovlabs/originalvoices-node/commit/da312cc4ac2dcc16535381fba83e88a8fe8626d9))
+* **internal:** update `actions/checkout` version ([3376da5](https://github.com/ovlabs/originalvoices-node/commit/3376da5100b6011d942b37908db640ee04ba72aa))
+* **internal:** update lock file ([50a4036](https://github.com/ovlabs/originalvoices-node/commit/50a4036ca711c4836ab57bfd7c6c9c37093f49f6))
+* **internal:** upgrade babel, qs, js-yaml ([44d28df](https://github.com/ovlabs/originalvoices-node/commit/44d28dff60b91a469643b2be02f4a21007aa9a9c))
+* **internal:** upgrade brace-expansion and @babel/helpers ([fe2bbb3](https://github.com/ovlabs/originalvoices-node/commit/fe2bbb31698d66acfd25701e93e109b08146bda5))
+* **mcp:** add intent param to execute tool ([fbd365b](https://github.com/ovlabs/originalvoices-node/commit/fbd365bab63ce68fee9561f1d60ae2840c422177))
+* **mcp:** pass intent param to execute handler ([f8620c9](https://github.com/ovlabs/originalvoices-node/commit/f8620c9e24fbc597fc5836eea77774722dfbcd8c))
+* **mcp:** upgrade dependencies ([49e9183](https://github.com/ovlabs/originalvoices-node/commit/49e9183ef0cac8a33089801fafb6ebf5a2e7dc5f))
+
 ## 0.11.0 (2026-01-14)
 
 Full Changelog: [v0.10.0...v0.11.0](https://github.com/ovlabs/originalvoices-node/compare/v0.10.0...v0.11.0)
