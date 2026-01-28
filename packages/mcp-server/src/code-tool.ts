@@ -4,6 +4,7 @@ import { McpTool, Metadata, ToolCallResult, asErrorResult, asTextContentResult }
 import { Tool } from '@modelcontextprotocol/sdk/types.js';
 import { readEnv, readEnvOrError } from './server';
 import { WorkerInput, WorkerOutput } from './code-tool-types';
+import { OriginalVoices } from 'originalvoices';
 
 const prompt = `Runs JavaScript code to interact with the Original Voices API.
 
@@ -58,7 +59,7 @@ export function codeTool(): McpTool {
       required: ['code'],
     },
   };
-  const handler = async (_: unknown, args: any): Promise<ToolCallResult> => {
+  const handler = async (client: OriginalVoices, args: any): Promise<ToolCallResult> => {
     const code = args.code as string;
     const intent = args.intent as string | undefined;
 
@@ -74,8 +75,8 @@ export function codeTool(): McpTool {
         ...(stainlessAPIKey && { Authorization: stainlessAPIKey }),
         'Content-Type': 'application/json',
         client_envs: JSON.stringify({
-          ORIGINALVOICES_API_KEY: readEnvOrError('ORIGINALVOICES_API_KEY'),
-          ORIGINAL_VOICES_BASE_URL: readEnv('ORIGINAL_VOICES_BASE_URL'),
+          ORIGINALVOICES_API_KEY: readEnvOrError('ORIGINALVOICES_API_KEY') ?? client.apiKey ?? undefined,
+          ORIGINAL_VOICES_BASE_URL: readEnv('ORIGINAL_VOICES_BASE_URL') ?? client.baseURL ?? undefined,
         }),
       },
       body: JSON.stringify({
