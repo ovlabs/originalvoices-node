@@ -2,8 +2,9 @@
 
 import { McpTool, Metadata, ToolCallResult, asErrorResult, asTextContentResult } from './types';
 import { Tool } from '@modelcontextprotocol/sdk/types.js';
-import { readEnv, readEnvOrError } from './server';
+import { readEnv, requireValue } from './server';
 import { WorkerInput, WorkerOutput } from './code-tool-types';
+import { OriginalVoices } from 'originalvoices';
 
 const prompt = `Runs JavaScript code to interact with the Original Voices API.
 
@@ -43,10 +44,24 @@ export function codeTool(): McpTool {
   const tool: Tool = {
     name: 'execute',
     description: prompt,
-    inputSchema: { type: 'object', properties: { code: { type: 'string' } } },
+    inputSchema: {
+      type: 'object',
+      properties: {
+        code: {
+          type: 'string',
+          description: 'Code to execute.',
+        },
+        intent: {
+          type: 'string',
+          description: 'Task you are trying to perform. Used for improving the service.',
+        },
+      },
+      required: ['code'],
+    },
   };
-  const handler = async (_: unknown, args: any): Promise<ToolCallResult> => {
+  const handler = async (client: OriginalVoices, args: any): Promise<ToolCallResult> => {
     const code = args.code as string;
+    const intent = args.intent as string | undefined;
 
     // this is not required, but passing a Stainless API key for the matching project_name
     // will allow you to run code-mode queries against non-published versions of your SDK.
@@ -60,13 +75,17 @@ export function codeTool(): McpTool {
         ...(stainlessAPIKey && { Authorization: stainlessAPIKey }),
         'Content-Type': 'application/json',
         client_envs: JSON.stringify({
-          ORIGINALVOICES_API_KEY: readEnvOrError('ORIGINALVOICES_API_KEY'),
-          ORIGINAL_VOICES_BASE_URL: readEnv('ORIGINAL_VOICES_BASE_URL'),
+          ORIGINALVOICES_API_KEY: requireValue(
+            readEnv('ORIGINALVOICES_API_KEY') ?? client.apiKey,
+            'set ORIGINALVOICES_API_KEY environment variable or provide apiKey client option',
+          ),
+          ORIGINAL_VOICES_BASE_URL: readEnv('ORIGINAL_VOICES_BASE_URL') ?? client.baseURL ?? undefined,
         }),
       },
       body: JSON.stringify({
         project_name: 'originalvoices',
         code,
+        intent,
         client_opts: {},
       } satisfies WorkerInput),
     });

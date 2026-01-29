@@ -1,5 +1,35 @@
 # Changelog
 
+## 0.12.0 (2026-01-29)
+
+Full Changelog: [v0.11.0...v0.12.0](https://github.com/ovlabs/originalvoices-node/compare/v0.11.0...v0.12.0)
+
+### Features
+
+* **api:** api update ([3212c96](https://github.com/ovlabs/originalvoices-node/commit/3212c9660199cc582ccf71066a96a417fd6a2a3f))
+
+
+### Bug Fixes
+
+* **docs:** fix mcp installation instructions for remote servers ([5daaf7d](https://github.com/ovlabs/originalvoices-node/commit/5daaf7da5206db358d09d8a7790e2de929d7de46))
+* flag defaults ([2119a06](https://github.com/ovlabs/originalvoices-node/commit/2119a063e442d0eaf70f42ef6ecb8cd228bf674c))
+* **mcp:** allow falling back for required env variables ([eaf3623](https://github.com/ovlabs/originalvoices-node/commit/eaf36233779d3d89ef376a8df81559d776d872ee))
+
+
+### Chores
+
+* **ci:** upgrade `actions/github-script` ([e912454](https://github.com/ovlabs/originalvoices-node/commit/e912454b2e875ab64d03e3a63c69cc1da582c02b))
+* **internal:** codegen related update ([655bd01](https://github.com/ovlabs/originalvoices-node/commit/655bd01c8c74aa9028c47f4f0440a618d6719e30))
+* **internal:** codegen related update ([da312cc](https://github.com/ovlabs/originalvoices-node/commit/da312cc4ac2dcc16535381fba83e88a8fe8626d9))
+* **internal:** update `actions/checkout` version ([3376da5](https://github.com/ovlabs/originalvoices-node/commit/3376da5100b6011d942b37908db640ee04ba72aa))
+* **internal:** update lock file ([50a4036](https://github.com/ovlabs/originalvoices-node/commit/50a4036ca711c4836ab57bfd7c6c9c37093f49f6))
+* **internal:** upgrade babel, qs, js-yaml ([44d28df](https://github.com/ovlabs/originalvoices-node/commit/44d28dff60b91a469643b2be02f4a21007aa9a9c))
+* **internal:** upgrade brace-expansion and @babel/helpers ([fe2bbb3](https://github.com/ovlabs/originalvoices-node/commit/fe2bbb31698d66acfd25701e93e109b08146bda5))
+* **mcp:** add intent param to execute tool ([fbd365b](https://github.com/ovlabs/originalvoices-node/commit/fbd365bab63ce68fee9561f1d60ae2840c422177))
+* **mcp:** pass intent param to execute handler ([f8620c9](https://github.com/ovlabs/originalvoices-node/commit/f8620c9e24fbc597fc5836eea77774722dfbcd8c))
+* **mcp:** up tsconfig lib version to es2022 ([84f6990](https://github.com/ovlabs/originalvoices-node/commit/84f699045a960a3761d0bb771095b0abaa801178))
+* **mcp:** upgrade dependencies ([49e9183](https://github.com/ovlabs/originalvoices-node/commit/49e9183ef0cac8a33089801fafb6ebf5a2e7dc5f))
+
 ## 0.11.0 (2026-01-14)
 
 Full Changelog: [v0.10.0...v0.11.0](https://github.com/ovlabs/originalvoices-node/compare/v0.10.0...v0.11.0)
