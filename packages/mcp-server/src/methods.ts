@@ -1,0 +1,132 @@
+import { McpOptions } from './options';
+
+export type SdkMethod = {
+  clientCallName: string;
+  fullyQualifiedName: string;
+  httpMethod?: 'get' | 'post' | 'put' | 'patch' | 'delete' | 'query';
+  httpPath?: string;
+};
+
+export const sdkMethods: SdkMethod[] = [
+  {
+    clientCallName: 'client.ask.choices',
+    fullyQualifiedName: 'ask.choices',
+    httpMethod: 'post',
+    httpPath: '/v1/ask/choices',
+  },
+  {
+    clientCallName: 'client.ask.open',
+    fullyQualifiedName: 'ask.open',
+    httpMethod: 'post',
+    httpPath: '/v1/ask/open',
+  },
+  {
+    clientCallName: 'client.audiences.create',
+    fullyQualifiedName: 'audiences.create',
+    httpMethod: 'post',
+    httpPath: '/v1/audiences',
+  },
+  {
+    clientCallName: 'client.audiences.update',
+    fullyQualifiedName: 'audiences.update',
+    httpMethod: 'patch',
+    httpPath: '/v1/audiences/{id}',
+  },
+  {
+    clientCallName: 'client.audiences.list',
+    fullyQualifiedName: 'audiences.list',
+    httpMethod: 'get',
+    httpPath: '/v1/audiences',
+  },
+  {
+    clientCallName: 'client.audiences.delete',
+    fullyQualifiedName: 'audiences.delete',
+    httpMethod: 'delete',
+    httpPath: '/v1/audiences/{id}',
+  },
+  {
+    clientCallName: 'client.mcp.sse.create',
+    fullyQualifiedName: 'mcp.sse.create',
+    httpMethod: 'post',
+    httpPath: '/mcp/sse',
+  },
+  {
+    clientCallName: 'client.mcp.sse.retrieve',
+    fullyQualifiedName: 'mcp.sse.retrieve',
+    httpMethod: 'get',
+    httpPath: '/mcp/sse',
+  },
+];
+
+function allowedMethodsForCodeTool(options: McpOptions | undefined): SdkMethod[] | undefined {
+  if (!options) {
+    return undefined;
+  }
+
+  let allowedMethods: SdkMethod[];
+
+  if (options.codeAllowHttpGets || options.codeAllowedMethods) {
+    // Start with nothing allowed and then add into it from options
+    let allowedMethodsSet = new Set<SdkMethod>();
+
+    if (options.codeAllowHttpGets) {
+      // Add all methods that map to an HTTP GET
+      sdkMethods
+        .filter((method) => method.httpMethod === 'get')
+        .forEach((method) => allowedMethodsSet.add(method));
+    }
+
+    if (options.codeAllowedMethods) {
+      // Add all methods that match any of the allowed regexps
+      const allowedRegexps = options.codeAllowedMethods.map((pattern) => {
+        try {
+          return new RegExp(pattern);
+        } catch (e) {
+          throw new Error(
+            `Invalid regex pattern for allowed method: "${pattern}": ${e instanceof Error ? e.message : e}`,
+          );
+        }
+      });
+
+      sdkMethods
+        .filter((method) => allowedRegexps.some((regexp) => regexp.test(method.fullyQualifiedName)))
+        .forEach((method) => allowedMethodsSet.add(method));
+    }
+
+    allowedMethods = Array.from(allowedMethodsSet);
+  } else {
+    // Start with everything allowed
+    allowedMethods = [...sdkMethods];
+  }
+
+  if (options.codeBlockedMethods) {
+    // Filter down based on blocked regexps
+    const blockedRegexps = options.codeBlockedMethods.map((pattern) => {
+      try {
+        return new RegExp(pattern);
+      } catch (e) {
+        throw new Error(
+          `Invalid regex pattern for blocked method: "${pattern}": ${e instanceof Error ? e.message : e}`,
+        );
+      }
+    });
+
+    allowedMethods = allowedMethods.filter(
+      (method) => !blockedRegexps.some((regexp) => regexp.test(method.fullyQualifiedName)),
+    );
+  }
+
+  return allowedMethods;
+}
+
+export function blockedMethodsForCodeTool(options: McpOptions | undefined): SdkMethod[] | undefined {
+  const allowedMethods = allowedMethodsForCodeTool(options);
+  if (!allowedMethods) {
+    return undefined;
+  }
+
+  const allowedSet = new Set(allowedMethods.map((method) => method.fullyQualifiedName));
+
+  // Return any methods that are not explicitly allowed
+  return sdkMethods.filter((method) => !allowedSet.has(method.fullyQualifiedName));
+}
