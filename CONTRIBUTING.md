@@ -60,7 +60,7 @@ $ yarn link originalvoices
 # With pnpm
 $ pnpm link --global
 $ cd ../my-package
-$ pnpm link -—global originalvoices
+$ pnpm link --global originalvoices
 ```
 
 ## Running tests
