@@ -1,5 +1,70 @@
 # Changelog
 
+## 0.12.0 (2026-03-06)
+
+Full Changelog: [v0.11.0...v0.12.0](https://github.com/ovlabs/originalvoices-node/compare/v0.11.0...v0.12.0)
+
+### Features
+
+* **api:** api update ([3212c96](https://github.com/ovlabs/originalvoices-node/commit/3212c9660199cc582ccf71066a96a417fd6a2a3f))
+* **mcp:** add an option to disable code tool ([f04c97f](https://github.com/ovlabs/originalvoices-node/commit/f04c97f64056c55fb5fdad159a967b2e9f6e79cf))
+* **mcp:** add initial server instructions ([47b2563](https://github.com/ovlabs/originalvoices-node/commit/47b2563413be60d82b3863c4fbca02da0a3e4ecc))
+
+
+### Bug Fixes
+
+* **client:** avoid memory leak with abort signals ([4313a8b](https://github.com/ovlabs/originalvoices-node/commit/4313a8b115ffb69292c6aa68adb4e5bddfed083f))
+* **client:** avoid removing abort listener too early ([4447815](https://github.com/ovlabs/originalvoices-node/commit/4447815c528e5f46f1a803e72f57196297f27659))
+* **docs/contributing:** correct pnpm link command ([1b5f6e0](https://github.com/ovlabs/originalvoices-node/commit/1b5f6e07c9d04cfaf4ddb8eaec7fb1d954a51a58))
+* **docs:** fix mcp installation instructions for remote servers ([5daaf7d](https://github.com/ovlabs/originalvoices-node/commit/5daaf7da5206db358d09d8a7790e2de929d7de46))
+* flag defaults ([2119a06](https://github.com/ovlabs/originalvoices-node/commit/2119a063e442d0eaf70f42ef6ecb8cd228bf674c))
+* **mcp:** allow falling back for required env variables ([eaf3623](https://github.com/ovlabs/originalvoices-node/commit/eaf36233779d3d89ef376a8df81559d776d872ee))
+* **mcp:** initialize SDK lazily to avoid failing the connection on init errors ([b3f977a](https://github.com/ovlabs/originalvoices-node/commit/b3f977aa6b68bc5b81c175d58c7d0db185012efb))
+* **mcp:** update prompt ([1f0ee51](https://github.com/ovlabs/originalvoices-node/commit/1f0ee5136458a1e73f511c8f7b4cf47b970a4b76))
+
+
+### Chores
+
+* **ci:** upgrade `actions/github-script` ([e912454](https://github.com/ovlabs/originalvoices-node/commit/e912454b2e875ab64d03e3a63c69cc1da582c02b))
+* **client:** do not parse responses with empty content-length ([88f4f4f](https://github.com/ovlabs/originalvoices-node/commit/88f4f4f0d9cda72dedf3c059077febe016acc078))
+* **client:** restructure abort controller binding ([04046b7](https://github.com/ovlabs/originalvoices-node/commit/04046b76ec7b333e27bc21f6de300067477289b4))
+* **internal/client:** fix form-urlencoded requests ([04f746a](https://github.com/ovlabs/originalvoices-node/commit/04f746a954aa0937a11bbb532e9f1be977e2c969))
+* **internal:** add health check to MCP server when running in HTTP mode ([17f6e23](https://github.com/ovlabs/originalvoices-node/commit/17f6e23935d8875190548a6ac3465d8820c75092))
+* **internal:** allow basic filtering of methods allowed for MCP code mode ([d518e03](https://github.com/ovlabs/originalvoices-node/commit/d518e03f0dd37086dbc41c2ab696f8fad4970fc4))
+* **internal:** allow setting x-stainless-api-key header on mcp server requests ([bb15742](https://github.com/ovlabs/originalvoices-node/commit/bb157427844fc10a89dd65df8e94a8408659c739))
+* **internal:** always generate MCP server dockerfiles and upgrade associated dependencies ([501b139](https://github.com/ovlabs/originalvoices-node/commit/501b13972966c4ff641c61dcc573fa0f5b5626de))
+* **internal:** avoid type checking errors with ts-reset ([d60e339](https://github.com/ovlabs/originalvoices-node/commit/d60e339dede50c11a172d7aaee209bbd46ce5f86))
+* **internal:** cache fetch instruction calls in MCP server ([d5f6e3e](https://github.com/ovlabs/originalvoices-node/commit/d5f6e3e9393717ec9b78c724fac36e624d4ed20a))
+* **internal:** codegen related update ([e6eb461](https://github.com/ovlabs/originalvoices-node/commit/e6eb46171ad1f4541adb37c4c304173b7f128588))
+* **internal:** codegen related update ([1327184](https://github.com/ovlabs/originalvoices-node/commit/132718476b28091885aebc099d28ee2c56509dd8))
+* **internal:** codegen related update ([655bd01](https://github.com/ovlabs/originalvoices-node/commit/655bd01c8c74aa9028c47f4f0440a618d6719e30))
+* **internal:** codegen related update ([da312cc](https://github.com/ovlabs/originalvoices-node/commit/da312cc4ac2dcc16535381fba83e88a8fe8626d9))
+* **internal:** fix MCP Dockerfiles so they can be built without buildkit ([c4d217d](https://github.com/ovlabs/originalvoices-node/commit/c4d217d5c55175df67881bb8b358ba726185ab75))
+* **internal:** fix MCP Dockerfiles so they can be built without buildkit ([7d73a72](https://github.com/ovlabs/originalvoices-node/commit/7d73a72a695e87f49e7a55f852fb3416790cca9c))
+* **internal:** improve layout of generated MCP server files ([3dac9cd](https://github.com/ovlabs/originalvoices-node/commit/3dac9cd6df75ca9496daac0e92b068c15ceb7faa))
+* **internal:** improve reliability of MCP servers when using local code mode execution ([63bd44f](https://github.com/ovlabs/originalvoices-node/commit/63bd44f1ad07eede36d7d597e980dd3a1655040b))
+* **internal:** make MCP code execution location configurable via a flag ([0a43f17](https://github.com/ovlabs/originalvoices-node/commit/0a43f177e5783ec93d9eb4261ef7048317d35683))
+* **internal:** move stringifyQuery implementation to internal function ([542faf5](https://github.com/ovlabs/originalvoices-node/commit/542faf55a6abdb6f307b1ed593d28f90f6c9cbec))
+* **internal:** refactor flag parsing for MCP servers and add debug flag ([cf55291](https://github.com/ovlabs/originalvoices-node/commit/cf552910e5245b5f819e0869df3c6e2e4883fd10))
+* **internal:** remove mock server code ([95e270f](https://github.com/ovlabs/originalvoices-node/commit/95e270f0cde1f025573db8a70ad3c23cbd3191b5))
+* **internal:** support oauth authorization code flow for MCP servers ([9206950](https://github.com/ovlabs/originalvoices-node/commit/9206950ab268af53529a04c4627b582a98cb6160))
+* **internal:** update `actions/checkout` version ([3376da5](https://github.com/ovlabs/originalvoices-node/commit/3376da5100b6011d942b37908db640ee04ba72aa))
+* **internal:** update lock file ([50a4036](https://github.com/ovlabs/originalvoices-node/commit/50a4036ca711c4836ab57bfd7c6c9c37093f49f6))
+* **internal:** upgrade @modelcontextprotocol/sdk and hono ([620f5a9](https://github.com/ovlabs/originalvoices-node/commit/620f5a9ee4aa3775f0f48732afc6839ae534ef8b))
+* **internal:** upgrade babel, qs, js-yaml ([44d28df](https://github.com/ovlabs/originalvoices-node/commit/44d28dff60b91a469643b2be02f4a21007aa9a9c))
+* **internal:** upgrade brace-expansion and @babel/helpers ([fe2bbb3](https://github.com/ovlabs/originalvoices-node/commit/fe2bbb31698d66acfd25701e93e109b08146bda5))
+* **internal:** upgrade pnpm ([badf006](https://github.com/ovlabs/originalvoices-node/commit/badf006a9f44e583e6228e4304a5c2eb635f0279))
+* **internal:** upgrade pnpm version ([94a1253](https://github.com/ovlabs/originalvoices-node/commit/94a1253d0ff80728a3ef4187f585188ecf443017))
+* **internal:** use x-stainless-mcp-client-envs header for MCP remote code tool calls ([b2c1378](https://github.com/ovlabs/originalvoices-node/commit/b2c137854a356f401b9841c47155ba220a5e3752))
+* **mcp-server:** return access instructions for 404 without API key ([60d10db](https://github.com/ovlabs/originalvoices-node/commit/60d10dbf80f75fc71ea961c79020351a889bd8df))
+* **mcp:** add intent param to execute tool ([fbd365b](https://github.com/ovlabs/originalvoices-node/commit/fbd365bab63ce68fee9561f1d60ae2840c422177))
+* **mcp:** correctly update version in sync with sdk ([1242790](https://github.com/ovlabs/originalvoices-node/commit/1242790e419d26b559b054f005982116d705c38b))
+* **mcp:** forward STAINLESS_API_KEY to docs search endpoint ([4a645c9](https://github.com/ovlabs/originalvoices-node/commit/4a645c91c3da52ac2ce193477170f38a4c8714db))
+* **mcp:** pass intent param to execute handler ([f8620c9](https://github.com/ovlabs/originalvoices-node/commit/f8620c9e24fbc597fc5836eea77774722dfbcd8c))
+* **mcp:** up tsconfig lib version to es2022 ([84f6990](https://github.com/ovlabs/originalvoices-node/commit/84f699045a960a3761d0bb771095b0abaa801178))
+* **mcp:** upgrade dependencies ([49e9183](https://github.com/ovlabs/originalvoices-node/commit/49e9183ef0cac8a33089801fafb6ebf5a2e7dc5f))
+* update mock server docs ([f9ee9e1](https://github.com/ovlabs/originalvoices-node/commit/f9ee9e111724e2c2547c96d5f52d2fe4e10e08a9))
+
 ## 0.11.0 (2026-01-14)
 
 Full Changelog: [v0.10.0...v0.11.0](https://github.com/ovlabs/originalvoices-node/compare/v0.10.0...v0.11.0)
