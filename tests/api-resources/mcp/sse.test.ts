@@ -8,7 +8,7 @@ const client = new OriginalVoices({
 });
 
 describe('resource sse', () => {
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('create', async () => {
     const responsePromise = client.mcp.sse.create();
     const rawResponse = await responsePromise.asResponse();
@@ -20,7 +20,7 @@ describe('resource sse', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('retrieve', async () => {
     const responsePromise = client.mcp.sse.retrieve();
     const rawResponse = await responsePromise.asResponse();
