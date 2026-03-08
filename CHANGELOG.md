@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.12.1 (2026-03-08)
+
+Full Changelog: [v0.12.0...v0.12.1](https://github.com/ovlabs/originalvoices-node/compare/v0.12.0...v0.12.1)
+
+### Bug Fixes
+
+* **client:** preserve URL params already embedded in path ([44dcaa5](https://github.com/ovlabs/originalvoices-node/commit/44dcaa5fbab94f00137df864845720e59b55494e))
+
+
+### Chores
+
+* **ci:** skip uploading artifacts on stainless-internal branches ([04bcbc8](https://github.com/ovlabs/originalvoices-node/commit/04bcbc83a0323f1c15db6d7c5daca7b867086d2c))
+* **internal:** codegen related update ([47c7c06](https://github.com/ovlabs/originalvoices-node/commit/47c7c06098d5341c8b8fd29d8c5ffa2a4a83a1f3))
+* **mcp-server:** improve instructions ([a03e6f5](https://github.com/ovlabs/originalvoices-node/commit/a03e6f50d7704517e0f8afbd929e26d3e29db87a))
+
 ## 0.12.0 (2026-03-06)
 
 Full Changelog: [v0.11.0...v0.12.0](https://github.com/ovlabs/originalvoices-node/compare/v0.11.0...v0.12.0)
