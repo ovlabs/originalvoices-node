@@ -1,5 +1,37 @@
 # Changelog
 
+## 0.12.1 (2026-03-14)
+
+Full Changelog: [v0.12.0...v0.12.1](https://github.com/ovlabs/originalvoices-node/compare/v0.12.0...v0.12.1)
+
+### Bug Fixes
+
+* **client:** preserve URL params already embedded in path ([44dcaa5](https://github.com/ovlabs/originalvoices-node/commit/44dcaa5fbab94f00137df864845720e59b55494e))
+
+
+### Chores
+
+* **ci:** skip uploading artifacts on stainless-internal branches ([04bcbc8](https://github.com/ovlabs/originalvoices-node/commit/04bcbc83a0323f1c15db6d7c5daca7b867086d2c))
+* **internal:** codegen related update ([4e0182c](https://github.com/ovlabs/originalvoices-node/commit/4e0182c6a989f690ede1fa4edd5a27008dbc03aa))
+* **internal:** codegen related update ([460642a](https://github.com/ovlabs/originalvoices-node/commit/460642a599e46e887019bd7d4022da69e65fa97c))
+* **internal:** codegen related update ([8e4f4df](https://github.com/ovlabs/originalvoices-node/commit/8e4f4dfdd2ecc471e5d3e0907480e6d0c8119f4c))
+* **internal:** codegen related update ([be9b780](https://github.com/ovlabs/originalvoices-node/commit/be9b7807189e3ee76d8fad2a5ce2de12bb3bd608))
+* **internal:** codegen related update ([a89d69d](https://github.com/ovlabs/originalvoices-node/commit/a89d69d3ae7e3d03820e33294b6a03db7fd7a0f7))
+* **internal:** codegen related update ([81fffc2](https://github.com/ovlabs/originalvoices-node/commit/81fffc23bf4fa85631faecb86886bb5b3408cd7b))
+* **internal:** codegen related update ([4077dfc](https://github.com/ovlabs/originalvoices-node/commit/4077dfcb8e7f21241cce441378443cf519c7c9ef))
+* **internal:** codegen related update ([3ac2ac7](https://github.com/ovlabs/originalvoices-node/commit/3ac2ac771b1e0f266312efb645b6203685c7dd85))
+* **internal:** codegen related update ([1093179](https://github.com/ovlabs/originalvoices-node/commit/10931791ea2b601b703e37028737d68a81dea1ac))
+* **internal:** codegen related update ([3001bc8](https://github.com/ovlabs/originalvoices-node/commit/3001bc8ce99f980da0c7a0d243cf8faf47399c0f))
+* **internal:** codegen related update ([50ca995](https://github.com/ovlabs/originalvoices-node/commit/50ca9952160a8ff728041ff8a4e0f005f43ce524))
+* **internal:** codegen related update ([c5b6f8e](https://github.com/ovlabs/originalvoices-node/commit/c5b6f8e88e4143eff28b440cc3a7828a30f3e38f))
+* **internal:** codegen related update ([47c7c06](https://github.com/ovlabs/originalvoices-node/commit/47c7c06098d5341c8b8fd29d8c5ffa2a4a83a1f3))
+* **internal:** make generated MCP servers compatible with Cloudflare worker environments ([a2be77c](https://github.com/ovlabs/originalvoices-node/commit/a2be77caf80b7dc9c2cc4edd81bf8bea98a21aa7))
+* **internal:** support x-stainless-mcp-client-envs header in MCP servers ([d00c10f](https://github.com/ovlabs/originalvoices-node/commit/d00c10f5d4d4c9288ce6fb2728d640b7fd084cd1))
+* **internal:** update dependencies to address dependabot vulnerabilities ([7e05984](https://github.com/ovlabs/originalvoices-node/commit/7e05984b8be6eef9ff4d0ec9b993fd4d53ef8fb2))
+* **internal:** update lock file ([0b37d8c](https://github.com/ovlabs/originalvoices-node/commit/0b37d8cbfe65f787caf1d48fd7ccf53a8b2ede55))
+* **internal:** update lockfile ([ca14ee2](https://github.com/ovlabs/originalvoices-node/commit/ca14ee2865583309c494c40f5dc0e6c2835946f7))
+* **mcp-server:** improve instructions ([a03e6f5](https://github.com/ovlabs/originalvoices-node/commit/a03e6f50d7704517e0f8afbd929e26d3e29db87a))
+
 ## 0.12.0 (2026-03-06)
 
 Full Changelog: [v0.11.0...v0.12.0](https://github.com/ovlabs/originalvoices-node/compare/v0.11.0...v0.12.0)
