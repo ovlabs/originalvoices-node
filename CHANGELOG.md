@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.12.2 (2026-03-24)
+
+Full Changelog: [v0.12.1...v0.12.2](https://github.com/ovlabs/originalvoices-node/compare/v0.12.1...v0.12.2)
+
+### Chores
+
+* **internal:** fix MCP server TS errors that occur with required client options ([ce237d4](https://github.com/ovlabs/originalvoices-node/commit/ce237d47af7fcf2654c40da9ab732e40d458145d))
+
 ## 0.12.1 (2026-03-24)
 
 Full Changelog: [v0.12.0...v0.12.1](https://github.com/ovlabs/originalvoices-node/compare/v0.12.0...v0.12.1)
