@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.12.3 (2026-03-25)
+
+Full Changelog: [v0.12.2...v0.12.3](https://github.com/ovlabs/originalvoices-node/compare/v0.12.2...v0.12.3)
+
+### Chores
+
+* **ci:** skip lint on metadata-only changes ([3a9325d](https://github.com/ovlabs/originalvoices-node/commit/3a9325d5281a19192b4e9ec556859f5d91024e6d))
+
 ## 0.12.2 (2026-03-24)
 
 Full Changelog: [v0.12.1...v0.12.2](https://github.com/ovlabs/originalvoices-node/compare/v0.12.1...v0.12.2)
