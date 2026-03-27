@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.12.4 (2026-03-27)
+
+Full Changelog: [v0.12.3...v0.12.4](https://github.com/ovlabs/originalvoices-node/compare/v0.12.3...v0.12.4)
+
+### Chores
+
+* **internal:** support custom-instructions-path flag in MCP servers ([1164a12](https://github.com/ovlabs/originalvoices-node/commit/1164a12d3b00701226b5f457807e99545b5d0fe5))
+
 ## 0.12.3 (2026-03-25)
 
 Full Changelog: [v0.12.2...v0.12.3](https://github.com/ovlabs/originalvoices-node/compare/v0.12.2...v0.12.3)
