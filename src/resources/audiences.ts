@@ -113,6 +113,8 @@ export interface AudienceCreateParams {
   prompt: string;
 
   title: string;
+
+  projectId?: string;
 }
 
 export interface AudienceUpdateParams {
