@@ -92,10 +92,10 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     description: 'Create a new audience with title and prompt',
     stainlessPath: '(resource) audiences > (method) create',
     qualified: 'client.audiences.create',
-    params: ['prompt: string;', 'title: string;'],
+    params: ['prompt: string;', 'title: string;', 'projectId?: string;'],
     response: '{ data: { id: string; title: string; }; error: null; requestId: string; }',
     markdown:
-      "## create\n\n`client.audiences.create(prompt: string, title: string): { data: object; error: null; requestId: string; }`\n\n**post** `/v1/audiences`\n\nCreate a new audience with title and prompt\n\n### Parameters\n\n- `prompt: string`\n\n- `title: string`\n\n### Returns\n\n- `{ data: { id: string; title: string; }; error: null; requestId: string; }`\n\n  - `data: { id: string; title: string; }`\n  - `error: null`\n  - `requestId: string`\n\n### Example\n\n```typescript\nimport OriginalVoices from 'originalvoices';\n\nconst client = new OriginalVoices();\n\nconst audience = await client.audiences.create({ prompt: 'x', title: 'x' });\n\nconsole.log(audience);\n```",
+      "## create\n\n`client.audiences.create(prompt: string, title: string, projectId?: string): { data: object; error: null; requestId: string; }`\n\n**post** `/v1/audiences`\n\nCreate a new audience with title and prompt\n\n### Parameters\n\n- `prompt: string`\n\n- `title: string`\n\n- `projectId?: string`\n\n### Returns\n\n- `{ data: { id: string; title: string; }; error: null; requestId: string; }`\n\n  - `data: { id: string; title: string; }`\n  - `error: null`\n  - `requestId: string`\n\n### Example\n\n```typescript\nimport OriginalVoices from 'originalvoices';\n\nconst client = new OriginalVoices();\n\nconst audience = await client.audiences.create({ prompt: 'x', title: 'x' });\n\nconsole.log(audience);\n```",
   },
   {
     name: 'update',
