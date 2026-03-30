@@ -22,7 +22,11 @@ describe('resource audiences', () => {
 
   // Mock server tests are disabled
   test.skip('create: required and optional params', async () => {
-    const response = await client.audiences.create({ prompt: 'x', title: 'x' });
+    const response = await client.audiences.create({
+      prompt: 'x',
+      title: 'x',
+      projectId: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
+    });
   });
 
   // Mock server tests are disabled
