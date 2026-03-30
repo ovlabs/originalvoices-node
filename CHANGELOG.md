@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.12.5 (2026-03-30)
+
+Full Changelog: [v0.12.4...v0.12.5](https://github.com/ovlabs/originalvoices-node/compare/v0.12.4...v0.12.5)
+
+### Chores
+
+* **ci:** escape input path in publish-npm workflow ([6a994cb](https://github.com/ovlabs/originalvoices-node/commit/6a994cb40fb2df0a93441f7db811d6f2f6636168))
+* **internal:** support local docs search in MCP servers ([74c9c68](https://github.com/ovlabs/originalvoices-node/commit/74c9c68798cdd3583f80580778178c2a9b662f6d))
+
 ## 0.12.4 (2026-03-27)
 
 Full Changelog: [v0.12.3...v0.12.4](https://github.com/ovlabs/originalvoices-node/compare/v0.12.3...v0.12.4)
