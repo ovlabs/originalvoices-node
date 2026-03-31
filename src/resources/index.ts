@@ -4,8 +4,10 @@ export {
   Ask,
   type AskChoicesResponse,
   type AskOpenResponse,
+  type AskProjectResponse,
   type AskChoicesParams,
   type AskOpenParams,
+  type AskProjectParams,
 } from './ask';
 export {
   Audiences,
@@ -16,4 +18,4 @@ export {
   type AudienceCreateParams,
   type AudienceUpdateParams,
 } from './audiences';
-export { Mcp } from './mcp/mcp';
+export { Projects, type ProjectListResponse } from './projects';
