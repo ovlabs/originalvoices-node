@@ -106,12 +106,12 @@ const fuse = new Fuse(
   [
     'client.ask.choices',
     'client.ask.open',
+    'client.ask.project',
+    'client.projects.list',
     'client.audiences.create',
     'client.audiences.delete',
     'client.audiences.list',
     'client.audiences.update',
-    'client.mcp.sse.create',
-    'client.mcp.sse.retrieve',
   ],
   { threshold: 1, shouldSort: true },
 );
