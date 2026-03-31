@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.14.1 (2026-03-31)
+
+Full Changelog: [v0.14.0...v0.14.1](https://github.com/ovlabs/originalvoices-node/compare/v0.14.0...v0.14.1)
+
+### Chores
+
+* update SDK settings ([0687cfe](https://github.com/ovlabs/originalvoices-node/commit/0687cfef08dc51a44c5cf3de08c05264ddad987b))
+
 ## 0.14.0 (2026-03-31)
 
 Full Changelog: [v0.13.0...v0.14.0](https://github.com/ovlabs/originalvoices-node/compare/v0.13.0...v0.14.0)
