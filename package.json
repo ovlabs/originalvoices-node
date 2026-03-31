@@ -1,6 +1,6 @@
 {
   "name": "originalvoices",
-  "version": "0.12.5",
+  "version": "0.13.0",
   "description": "The official TypeScript library for the Original Voices API",
   "author": "Original Voices <support@originalvoices.ai>",
   "types": "dist/index.d.ts",
