@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.13.0 (2026-03-31)
+
+Full Changelog: [v0.12.5...v0.13.0](https://github.com/ovlabs/originalvoices-node/compare/v0.12.5...v0.13.0)
+
+### Features
+
+* **api:** api update ([c7e3dd5](https://github.com/ovlabs/originalvoices-node/commit/c7e3dd52756004c9275fffe62a849b7ea0ce9188))
+
+
+### Chores
+
+* **internal:** improve local docs search for MCP servers ([edcb9bf](https://github.com/ovlabs/originalvoices-node/commit/edcb9bfef3c703f3ca3dc0996fa39c528a68df51))
+* **mcp-server:** add support for session id, forward client info ([bff2a6a](https://github.com/ovlabs/originalvoices-node/commit/bff2a6a86d25f1101967c9df4b43a12192d2d4ae))
+
 ## 0.12.5 (2026-03-30)
 
 Full Changelog: [v0.12.4...v0.12.5](https://github.com/ovlabs/originalvoices-node/compare/v0.12.4...v0.12.5)
