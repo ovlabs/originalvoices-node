@@ -3,6 +3,7 @@
 import { APIResource } from '../core/resource';
 import { APIPromise } from '../core/api-promise';
 import { RequestOptions } from '../internal/request-options';
+import { path } from '../internal/utils/path';
 
 export class Ask extends APIResource {
   /**
@@ -17,6 +18,17 @@ export class Ask extends APIResource {
    */
   open(body: AskOpenParams | null | undefined = {}, options?: RequestOptions): APIPromise<AskOpenResponse> {
     return this._client.post('/v1/ask/open', { body, ...options });
+  }
+
+  /**
+   * Ask questions to a filtered subset of a project's survey respondents
+   */
+  project(
+    projectID: string,
+    body: AskProjectParams,
+    options?: RequestOptions,
+  ): APIPromise<AskProjectResponse> {
+    return this._client.post(path`/v1/ask/project/${projectID}`, { body, ...options });
   }
 }
 
@@ -62,6 +74,32 @@ export namespace AskOpenResponse {
   }
 }
 
+export interface AskProjectResponse {
+  data: AskProjectResponse.Data;
+
+  error: null;
+
+  requestId: string;
+}
+
+export namespace AskProjectResponse {
+  export interface Data {
+    answers: Array<Array<Data.Answer>>;
+
+    matchedTwins: number;
+
+    totalTwins: number;
+  }
+
+  export namespace Data {
+    export interface Answer {
+      answer: string;
+
+      confidence: number;
+    }
+  }
+}
+
 export interface AskChoicesParams {
   choices: Array<string>;
 
@@ -88,11 +126,19 @@ export interface AskOpenParams {
   sampleSize?: 'low' | 'medium' | 'high' | 'very_high';
 }
 
+export interface AskProjectParams {
+  questions: Array<string>;
+
+  filter?: string;
+}
+
 export declare namespace Ask {
   export {
     type AskChoicesResponse as AskChoicesResponse,
     type AskOpenResponse as AskOpenResponse,
+    type AskProjectResponse as AskProjectResponse,
     type AskChoicesParams as AskChoicesParams,
     type AskOpenParams as AskOpenParams,
+    type AskProjectParams as AskProjectParams,
   };
 }

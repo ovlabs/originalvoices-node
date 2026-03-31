@@ -91,6 +91,33 @@ const EMBEDDED_METHODS: MethodEntry[] = [
       "## open\n\n`client.ask.open(audienceId?: string, audiencePrompt?: string, question?: string, questions?: string[], sampleSize?: 'low' | 'medium' | 'high' | 'very_high'): { data: object; error: null; requestId: string; }`\n\n**post** `/v1/ask/open`\n\nAsk an open-ended question to the audience and get raw answers\n\n### Parameters\n\n- `audienceId?: string`\n\n- `audiencePrompt?: string`\n\n- `question?: string`\n\n- `questions?: string[]`\n\n- `sampleSize?: 'low' | 'medium' | 'high' | 'very_high'`\n\n### Returns\n\n- `{ data: { answers: { answer: string; confidence: number; }[][]; }; error: null; requestId: string; }`\n\n  - `data: { answers: { answer: string; confidence: number; }[][]; }`\n  - `error: null`\n  - `requestId: string`\n\n### Example\n\n```typescript\nimport OriginalVoices from 'originalvoices';\n\nconst client = new OriginalVoices();\n\nconst response = await client.ask.open();\n\nconsole.log(response);\n```",
   },
   {
+    name: 'project',
+    endpoint: '/v1/ask/project/{projectId}',
+    httpMethod: 'post',
+    summary: '',
+    description: "Ask questions to a filtered subset of a project's survey respondents",
+    stainlessPath: '(resource) ask > (method) project',
+    qualified: 'client.ask.project',
+    params: ['projectId: string;', 'questions: string[];', 'filter?: string;'],
+    response:
+      '{ data: { answers: { answer: string; confidence: number; }[][]; matchedTwins: number; totalTwins: number; }; error: null; requestId: string; }',
+    markdown:
+      "## project\n\n`client.ask.project(projectId: string, questions: string[], filter?: string): { data: object; error: null; requestId: string; }`\n\n**post** `/v1/ask/project/{projectId}`\n\nAsk questions to a filtered subset of a project's survey respondents\n\n### Parameters\n\n- `projectId: string`\n\n- `questions: string[]`\n\n- `filter?: string`\n\n### Returns\n\n- `{ data: { answers: { answer: string; confidence: number; }[][]; matchedTwins: number; totalTwins: number; }; error: null; requestId: string; }`\n\n  - `data: { answers: { answer: string; confidence: number; }[][]; matchedTwins: number; totalTwins: number; }`\n  - `error: null`\n  - `requestId: string`\n\n### Example\n\n```typescript\nimport OriginalVoices from 'originalvoices';\n\nconst client = new OriginalVoices();\n\nconst response = await client.ask.project('182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e', { questions: ['x'] });\n\nconsole.log(response);\n```",
+  },
+  {
+    name: 'list',
+    endpoint: '/v1/audiences',
+    httpMethod: 'get',
+    summary: '',
+    description: 'List all audiences owned by the authenticated organization',
+    stainlessPath: '(resource) projects > (method) list',
+    qualified: 'client.projects.list',
+    response:
+      '{ data: { audiences: { id: string; prompt: string; title: string; }[]; }; error: null; requestId: string; }',
+    markdown:
+      "## list\n\n`client.projects.list(): { data: object; error: null; requestId: string; }`\n\n**get** `/v1/audiences`\n\nList all audiences owned by the authenticated organization\n\n### Returns\n\n- `{ data: { audiences: { id: string; prompt: string; title: string; }[]; }; error: null; requestId: string; }`\n\n  - `data: { audiences: { id: string; prompt: string; title: string; }[]; }`\n  - `error: null`\n  - `requestId: string`\n\n### Example\n\n```typescript\nimport OriginalVoices from 'originalvoices';\n\nconst client = new OriginalVoices();\n\nconst projects = await client.projects.list();\n\nconsole.log(projects);\n```",
+  },
+  {
     name: 'create',
     endpoint: '/v1/audiences',
     httpMethod: 'post',
@@ -141,28 +168,6 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     response: '{ data: { success: boolean; }; error: null; requestId: string; }',
     markdown:
       "## delete\n\n`client.audiences.delete(id: string): { data: object; error: null; requestId: string; }`\n\n**delete** `/v1/audiences/{id}`\n\nDelete an audience\n\n### Parameters\n\n- `id: string`\n\n### Returns\n\n- `{ data: { success: boolean; }; error: null; requestId: string; }`\n\n  - `data: { success: boolean; }`\n  - `error: null`\n  - `requestId: string`\n\n### Example\n\n```typescript\nimport OriginalVoices from 'originalvoices';\n\nconst client = new OriginalVoices();\n\nconst audience = await client.audiences.delete('182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e');\n\nconsole.log(audience);\n```",
-  },
-  {
-    name: 'create',
-    endpoint: '/mcp/sse',
-    httpMethod: 'post',
-    summary: '',
-    description: '',
-    stainlessPath: '(resource) mcp.sse > (method) create',
-    qualified: 'client.mcp.sse.create',
-    markdown:
-      "## create\n\n`client.mcp.sse.create(): void`\n\n**post** `/mcp/sse`\n\n### Example\n\n```typescript\nimport OriginalVoices from 'originalvoices';\n\nconst client = new OriginalVoices();\n\nawait client.mcp.sse.create()\n```",
-  },
-  {
-    name: 'retrieve',
-    endpoint: '/mcp/sse',
-    httpMethod: 'get',
-    summary: '',
-    description: '',
-    stainlessPath: '(resource) mcp.sse > (method) retrieve',
-    qualified: 'client.mcp.sse.retrieve',
-    markdown:
-      "## retrieve\n\n`client.mcp.sse.retrieve(): void`\n\n**get** `/mcp/sse`\n\n### Example\n\n```typescript\nimport OriginalVoices from 'originalvoices';\n\nconst client = new OriginalVoices();\n\nawait client.mcp.sse.retrieve()\n```",
   },
 ];
 

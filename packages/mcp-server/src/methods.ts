@@ -23,6 +23,18 @@ export const sdkMethods: SdkMethod[] = [
     httpPath: '/v1/ask/open',
   },
   {
+    clientCallName: 'client.ask.project',
+    fullyQualifiedName: 'ask.project',
+    httpMethod: 'post',
+    httpPath: '/v1/ask/project/{projectId}',
+  },
+  {
+    clientCallName: 'client.projects.list',
+    fullyQualifiedName: 'projects.list',
+    httpMethod: 'get',
+    httpPath: '/v1/audiences',
+  },
+  {
     clientCallName: 'client.audiences.create',
     fullyQualifiedName: 'audiences.create',
     httpMethod: 'post',
@@ -45,18 +57,6 @@ export const sdkMethods: SdkMethod[] = [
     fullyQualifiedName: 'audiences.delete',
     httpMethod: 'delete',
     httpPath: '/v1/audiences/{id}',
-  },
-  {
-    clientCallName: 'client.mcp.sse.create',
-    fullyQualifiedName: 'mcp.sse.create',
-    httpMethod: 'post',
-    httpPath: '/mcp/sse',
-  },
-  {
-    clientCallName: 'client.mcp.sse.retrieve',
-    fullyQualifiedName: 'mcp.sse.retrieve',
-    httpMethod: 'get',
-    httpPath: '/mcp/sse',
   },
 ];
 
