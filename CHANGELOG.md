@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.14.2 (2026-04-01)
+
+Full Changelog: [v0.14.1...v0.14.2](https://github.com/ovlabs/originalvoices-node/compare/v0.14.1...v0.14.2)
+
+### Bug Fixes
+
+* **internal:** gitignore generated `oidc` dir ([59b27be](https://github.com/ovlabs/originalvoices-node/commit/59b27be736626aa0df33cc7e8751c93d8f2fd608))
+
+
+### Chores
+
+* **internal:** improve local docs search for MCP servers ([087a5c0](https://github.com/ovlabs/originalvoices-node/commit/087a5c0f317c53ce107416fd1b8bb4075cc8dd4b))
+
 ## 0.14.1 (2026-03-31)
 
 Full Changelog: [v0.14.0...v0.14.1](https://github.com/ovlabs/originalvoices-node/compare/v0.14.0...v0.14.1)
