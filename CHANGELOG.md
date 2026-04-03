@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.14.3 (2026-04-03)
+
+Full Changelog: [v0.14.2...v0.14.3](https://github.com/ovlabs/originalvoices-node/compare/v0.14.2...v0.14.3)
+
+### Chores
+
+* **internal:** support type annotations when running MCP in local execution mode ([3bd35a1](https://github.com/ovlabs/originalvoices-node/commit/3bd35a19564e3b54e5cc9543afc5eb9449cf42a2))
+* **mcp-server:** log client info ([f160002](https://github.com/ovlabs/originalvoices-node/commit/f1600028d1dc738a8ae18982ea42ed48d87a3d5a))
+
 ## 0.14.2 (2026-04-01)
 
 Full Changelog: [v0.14.1...v0.14.2](https://github.com/ovlabs/originalvoices-node/compare/v0.14.1...v0.14.2)
