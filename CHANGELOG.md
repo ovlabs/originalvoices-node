@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.14.5 (2026-04-09)
+
+Full Changelog: [v0.14.4...v0.14.5](https://github.com/ovlabs/originalvoices-node/compare/v0.14.4...v0.14.5)
+
+### Chores
+
+* **internal:** codegen related update ([7b72a22](https://github.com/ovlabs/originalvoices-node/commit/7b72a2221130b1661342d0020d5cd46f26cd9e57))
+* **mcp-server:** increase local docs search result count from 5 to 10 ([4e64e9e](https://github.com/ovlabs/originalvoices-node/commit/4e64e9e38d27e792c3720528638de18957feb4a4))
+
 ## 0.14.4 (2026-04-07)
 
 Full Changelog: [v0.14.3...v0.14.4](https://github.com/ovlabs/originalvoices-node/compare/v0.14.3...v0.14.4)
