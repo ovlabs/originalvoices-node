@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.14.6 (2026-04-10)
+
+Full Changelog: [v0.14.5...v0.14.6](https://github.com/ovlabs/originalvoices-node/compare/v0.14.5...v0.14.6)
+
+### Chores
+
+* **internal:** show error causes in MCP servers when running in local mode ([77b844a](https://github.com/ovlabs/originalvoices-node/commit/77b844ab7f74866d0eaff777b77edc3818c7ea64))
+
 ## 0.14.5 (2026-04-09)
 
 Full Changelog: [v0.14.4...v0.14.5](https://github.com/ovlabs/originalvoices-node/compare/v0.14.4...v0.14.5)
