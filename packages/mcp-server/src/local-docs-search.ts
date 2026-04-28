@@ -70,14 +70,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## open\n\n`client.ask.open(audienceId?: string, audiencePrompt?: string, question?: string, questions?: string[], sampleSize?: 'low' | 'medium' | 'high' | 'very_high'): { data: object; error: null; requestId: string; }`\n\n**post** `/v1/ask/open`\n\nAsk an open-ended question to the audience and get raw answers\n\n### Parameters\n\n- `audienceId?: string`\n\n- `audiencePrompt?: string`\n\n- `question?: string`\n\n- `questions?: string[]`\n\n- `sampleSize?: 'low' | 'medium' | 'high' | 'very_high'`\n\n### Returns\n\n- `{ data: { answers: { answer: string; confidence: number; }[][]; }; error: null; requestId: string; }`\n\n  - `data: { answers: { answer: string; confidence: number; }[][]; }`\n  - `error: null`\n  - `requestId: string`\n\n### Example\n\n```typescript\nimport OriginalVoices from 'originalvoices';\n\nconst client = new OriginalVoices();\n\nconst response = await client.ask.open();\n\nconsole.log(response);\n```",
     perLanguage: {
-      http: {
-        example:
-          'curl https://api.originalvoices.ai/v1/ask/open \\\n    -X POST \\\n    -H "Authorization: Bearer $ORIGINALVOICES_API_KEY"',
-      },
       typescript: {
         method: 'client.ask.open',
         example:
           "import OriginalVoices from 'originalvoices';\n\nconst client = new OriginalVoices({\n  apiKey: process.env['ORIGINALVOICES_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.ask.open();\n\nconsole.log(response.data);",
+      },
+      http: {
+        example:
+          'curl https://api.originalvoices.ai/v1/ask/open \\\n    -X POST \\\n    -H "Authorization: Bearer $ORIGINALVOICES_API_KEY"',
       },
     },
   },
@@ -101,14 +101,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## choices\n\n`client.ask.choices(choices: string[], isMultipleChoice: boolean, question: string, audienceId?: string, audiencePrompt?: string, sampleSize?: 'low' | 'medium' | 'high' | 'very_high'): { data: object; requestId: string; }`\n\n**post** `/v1/ask/choices`\n\nAsk a choices question to the audience and get summary and themes\n\n### Parameters\n\n- `choices: string[]`\n\n- `isMultipleChoice: boolean`\n\n- `question: string`\n\n- `audienceId?: string`\n\n- `audiencePrompt?: string`\n\n- `sampleSize?: 'low' | 'medium' | 'high' | 'very_high'`\n\n### Returns\n\n- `{ data: { choices: { choice: string; percentage: number; }[]; }; requestId: string; }`\n\n  - `data: { choices: { choice: string; percentage: number; }[]; }`\n  - `requestId: string`\n\n### Example\n\n```typescript\nimport OriginalVoices from 'originalvoices';\n\nconst client = new OriginalVoices();\n\nconst response = await client.ask.choices({\n  choices: ['x', 'x'],\n  isMultipleChoice: true,\n  question: 'x',\n});\n\nconsole.log(response);\n```",
     perLanguage: {
-      http: {
-        example:
-          'curl https://api.originalvoices.ai/v1/ask/choices \\\n    -H \'Content-Type: application/json\' \\\n    -H "Authorization: Bearer $ORIGINALVOICES_API_KEY" \\\n    -d \'{\n          "choices": [\n            "x",\n            "x"\n          ],\n          "isMultipleChoice": true,\n          "question": "x"\n        }\'',
-      },
       typescript: {
         method: 'client.ask.choices',
         example:
           "import OriginalVoices from 'originalvoices';\n\nconst client = new OriginalVoices({\n  apiKey: process.env['ORIGINALVOICES_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.ask.choices({\n  choices: ['x', 'x'],\n  isMultipleChoice: true,\n  question: 'x',\n});\n\nconsole.log(response.data);",
+      },
+      http: {
+        example:
+          'curl https://api.originalvoices.ai/v1/ask/choices \\\n    -H \'Content-Type: application/json\' \\\n    -H "Authorization: Bearer $ORIGINALVOICES_API_KEY" \\\n    -d \'{\n          "choices": [\n            "x",\n            "x"\n          ],\n          "isMultipleChoice": true,\n          "question": "x"\n        }\'',
       },
     },
   },
@@ -126,14 +126,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## project\n\n`client.ask.project(projectId: string, questions: string[], filter?: string): { data: object; error: null; requestId: string; }`\n\n**post** `/v1/ask/project/{projectId}`\n\nAsk questions to a filtered subset of a project's survey respondents\n\n### Parameters\n\n- `projectId: string`\n\n- `questions: string[]`\n\n- `filter?: string`\n\n### Returns\n\n- `{ data: { answers: { answer: string; confidence: number; }[][]; matchedTwins: number; totalTwins: number; }; error: null; requestId: string; }`\n\n  - `data: { answers: { answer: string; confidence: number; }[][]; matchedTwins: number; totalTwins: number; }`\n  - `error: null`\n  - `requestId: string`\n\n### Example\n\n```typescript\nimport OriginalVoices from 'originalvoices';\n\nconst client = new OriginalVoices();\n\nconst response = await client.ask.project('182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e', { questions: ['x'] });\n\nconsole.log(response);\n```",
     perLanguage: {
-      http: {
-        example:
-          'curl https://api.originalvoices.ai/v1/ask/project/$PROJECT_ID \\\n    -H \'Content-Type: application/json\' \\\n    -H "Authorization: Bearer $ORIGINALVOICES_API_KEY" \\\n    -d \'{\n          "questions": [\n            "x"\n          ]\n        }\'',
-      },
       typescript: {
         method: 'client.ask.project',
         example:
           "import OriginalVoices from 'originalvoices';\n\nconst client = new OriginalVoices({\n  apiKey: process.env['ORIGINALVOICES_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.ask.project('182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e', {\n  questions: ['x'],\n});\n\nconsole.log(response.data);",
+      },
+      http: {
+        example:
+          'curl https://api.originalvoices.ai/v1/ask/project/$PROJECT_ID \\\n    -H \'Content-Type: application/json\' \\\n    -H "Authorization: Bearer $ORIGINALVOICES_API_KEY" \\\n    -d \'{\n          "questions": [\n            "x"\n          ]\n        }\'',
       },
     },
   },
@@ -150,14 +150,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## list\n\n`client.projects.list(): { data: object; error: null; requestId: string; }`\n\n**get** `/v1/audiences`\n\nList all audiences owned by the authenticated organization\n\n### Returns\n\n- `{ data: { audiences: { id: string; prompt: string; title: string; }[]; }; error: null; requestId: string; }`\n\n  - `data: { audiences: { id: string; prompt: string; title: string; }[]; }`\n  - `error: null`\n  - `requestId: string`\n\n### Example\n\n```typescript\nimport OriginalVoices from 'originalvoices';\n\nconst client = new OriginalVoices();\n\nconst projects = await client.projects.list();\n\nconsole.log(projects);\n```",
     perLanguage: {
-      http: {
-        example:
-          'curl https://api.originalvoices.ai/v1/audiences \\\n    -H "Authorization: Bearer $ORIGINALVOICES_API_KEY"',
-      },
       typescript: {
         method: 'client.projects.list',
         example:
           "import OriginalVoices from 'originalvoices';\n\nconst client = new OriginalVoices({\n  apiKey: process.env['ORIGINALVOICES_API_KEY'], // This is the default and can be omitted\n});\n\nconst projects = await client.projects.list();\n\nconsole.log(projects.data);",
+      },
+      http: {
+        example:
+          'curl https://api.originalvoices.ai/v1/audiences \\\n    -H "Authorization: Bearer $ORIGINALVOICES_API_KEY"',
       },
     },
   },
@@ -174,14 +174,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## list\n\n`client.audiences.list(): { data: object; error: null; requestId: string; }`\n\n**get** `/v1/audiences`\n\nList all audiences owned by the authenticated organization\n\n### Returns\n\n- `{ data: { audiences: { id: string; prompt: string; title: string; }[]; }; error: null; requestId: string; }`\n\n  - `data: { audiences: { id: string; prompt: string; title: string; }[]; }`\n  - `error: null`\n  - `requestId: string`\n\n### Example\n\n```typescript\nimport OriginalVoices from 'originalvoices';\n\nconst client = new OriginalVoices();\n\nconst audiences = await client.audiences.list();\n\nconsole.log(audiences);\n```",
     perLanguage: {
-      http: {
-        example:
-          'curl https://api.originalvoices.ai/v1/audiences \\\n    -H "Authorization: Bearer $ORIGINALVOICES_API_KEY"',
-      },
       typescript: {
         method: 'client.audiences.list',
         example:
           "import OriginalVoices from 'originalvoices';\n\nconst client = new OriginalVoices({\n  apiKey: process.env['ORIGINALVOICES_API_KEY'], // This is the default and can be omitted\n});\n\nconst audiences = await client.audiences.list();\n\nconsole.log(audiences.data);",
+      },
+      http: {
+        example:
+          'curl https://api.originalvoices.ai/v1/audiences \\\n    -H "Authorization: Bearer $ORIGINALVOICES_API_KEY"',
       },
     },
   },
@@ -198,14 +198,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## create\n\n`client.audiences.create(prompt: string, title: string, projectId?: string): { data: object; error: null; requestId: string; }`\n\n**post** `/v1/audiences`\n\nCreate a new audience with title and prompt\n\n### Parameters\n\n- `prompt: string`\n\n- `title: string`\n\n- `projectId?: string`\n\n### Returns\n\n- `{ data: { id: string; title: string; }; error: null; requestId: string; }`\n\n  - `data: { id: string; title: string; }`\n  - `error: null`\n  - `requestId: string`\n\n### Example\n\n```typescript\nimport OriginalVoices from 'originalvoices';\n\nconst client = new OriginalVoices();\n\nconst audience = await client.audiences.create({ prompt: 'x', title: 'x' });\n\nconsole.log(audience);\n```",
     perLanguage: {
-      http: {
-        example:
-          'curl https://api.originalvoices.ai/v1/audiences \\\n    -H \'Content-Type: application/json\' \\\n    -H "Authorization: Bearer $ORIGINALVOICES_API_KEY" \\\n    -d \'{\n          "prompt": "x",\n          "title": "x"\n        }\'',
-      },
       typescript: {
         method: 'client.audiences.create',
         example:
           "import OriginalVoices from 'originalvoices';\n\nconst client = new OriginalVoices({\n  apiKey: process.env['ORIGINALVOICES_API_KEY'], // This is the default and can be omitted\n});\n\nconst audience = await client.audiences.create({ prompt: 'x', title: 'x' });\n\nconsole.log(audience.data);",
+      },
+      http: {
+        example:
+          'curl https://api.originalvoices.ai/v1/audiences \\\n    -H \'Content-Type: application/json\' \\\n    -H "Authorization: Bearer $ORIGINALVOICES_API_KEY" \\\n    -d \'{\n          "prompt": "x",\n          "title": "x"\n        }\'',
       },
     },
   },
@@ -222,14 +222,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## update\n\n`client.audiences.update(id: string, title: string): { data: object; error: null; requestId: string; }`\n\n**patch** `/v1/audiences/{id}`\n\nUpdate the title of an audience\n\n### Parameters\n\n- `id: string`\n\n- `title: string`\n\n### Returns\n\n- `{ data: { id: string; title: string; }; error: null; requestId: string; }`\n\n  - `data: { id: string; title: string; }`\n  - `error: null`\n  - `requestId: string`\n\n### Example\n\n```typescript\nimport OriginalVoices from 'originalvoices';\n\nconst client = new OriginalVoices();\n\nconst audience = await client.audiences.update('182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e', { title: 'x' });\n\nconsole.log(audience);\n```",
     perLanguage: {
-      http: {
-        example:
-          'curl https://api.originalvoices.ai/v1/audiences/$ID \\\n    -X PATCH \\\n    -H \'Content-Type: application/json\' \\\n    -H "Authorization: Bearer $ORIGINALVOICES_API_KEY" \\\n    -d \'{\n          "title": "x"\n        }\'',
-      },
       typescript: {
         method: 'client.audiences.update',
         example:
           "import OriginalVoices from 'originalvoices';\n\nconst client = new OriginalVoices({\n  apiKey: process.env['ORIGINALVOICES_API_KEY'], // This is the default and can be omitted\n});\n\nconst audience = await client.audiences.update('182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e', {\n  title: 'x',\n});\n\nconsole.log(audience.data);",
+      },
+      http: {
+        example:
+          'curl https://api.originalvoices.ai/v1/audiences/$ID \\\n    -X PATCH \\\n    -H \'Content-Type: application/json\' \\\n    -H "Authorization: Bearer $ORIGINALVOICES_API_KEY" \\\n    -d \'{\n          "title": "x"\n        }\'',
       },
     },
   },
@@ -246,14 +246,14 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## delete\n\n`client.audiences.delete(id: string): { data: object; error: null; requestId: string; }`\n\n**delete** `/v1/audiences/{id}`\n\nDelete an audience\n\n### Parameters\n\n- `id: string`\n\n### Returns\n\n- `{ data: { success: boolean; }; error: null; requestId: string; }`\n\n  - `data: { success: boolean; }`\n  - `error: null`\n  - `requestId: string`\n\n### Example\n\n```typescript\nimport OriginalVoices from 'originalvoices';\n\nconst client = new OriginalVoices();\n\nconst audience = await client.audiences.delete('182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e');\n\nconsole.log(audience);\n```",
     perLanguage: {
-      http: {
-        example:
-          'curl https://api.originalvoices.ai/v1/audiences/$ID \\\n    -X DELETE \\\n    -H "Authorization: Bearer $ORIGINALVOICES_API_KEY"',
-      },
       typescript: {
         method: 'client.audiences.delete',
         example:
           "import OriginalVoices from 'originalvoices';\n\nconst client = new OriginalVoices({\n  apiKey: process.env['ORIGINALVOICES_API_KEY'], // This is the default and can be omitted\n});\n\nconst audience = await client.audiences.delete('182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e');\n\nconsole.log(audience.data);",
+      },
+      http: {
+        example:
+          'curl https://api.originalvoices.ai/v1/audiences/$ID \\\n    -X DELETE \\\n    -H "Authorization: Bearer $ORIGINALVOICES_API_KEY"',
       },
     },
   },
