@@ -28,7 +28,7 @@ export const newMcpServer = async ({
   new McpServer(
     {
       name: 'originalvoices_api',
-      version: '0.14.6',
+      version: '0.15.0',
     },
     {
       instructions: await getInstructions({ stainlessApiKey, customInstructionsPath }),

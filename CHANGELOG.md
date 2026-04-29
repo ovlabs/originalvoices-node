@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.15.0 (2026-04-29)
+
+Full Changelog: [v0.14.6...v0.15.0](https://github.com/ovlabs/originalvoices-node/compare/v0.14.6...v0.15.0)
+
+### Features
+
+* support setting headers via env ([21d20fd](https://github.com/ovlabs/originalvoices-node/commit/21d20fd89a504fccafef6954fe35f4d06dd8d2de))
+
+
+### Chores
+
+* **format:** run eslint and prettier separately ([8f4d3f6](https://github.com/ovlabs/originalvoices-node/commit/8f4d3f622b649cd3c62ed391ea5248621cb510b6))
+* **internal:** codegen related update ([85d6cca](https://github.com/ovlabs/originalvoices-node/commit/85d6ccaa17175a7ecc61754a9a9996b7f234823a))
+* **internal:** more robust bootstrap script ([dc7fe11](https://github.com/ovlabs/originalvoices-node/commit/dc7fe1180403fd971f69adfa6b076dd3b0b7cf77))
+* restructure docs search code ([9a8ec72](https://github.com/ovlabs/originalvoices-node/commit/9a8ec7230fad5ed23d8fd0a88da04fef68030db7))
+
 ## 0.14.6 (2026-04-10)
 
 Full Changelog: [v0.14.5...v0.14.6](https://github.com/ovlabs/originalvoices-node/compare/v0.14.5...v0.14.6)
