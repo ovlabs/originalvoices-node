@@ -61,6 +61,7 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     params: [
       'audienceId?: string;',
       'audiencePrompt?: string;',
+      'networkId?: string;',
       'question?: string;',
       'questions?: string[];',
       "sampleSize?: 'low' | 'medium' | 'high' | 'very_high';",
@@ -68,7 +69,7 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     response:
       '{ data: { answers: { answer: string; confidence: number; }[][]; }; error: null; requestId: string; }',
     markdown:
-      "## open\n\n`client.ask.open(audienceId?: string, audiencePrompt?: string, question?: string, questions?: string[], sampleSize?: 'low' | 'medium' | 'high' | 'very_high'): { data: object; error: null; requestId: string; }`\n\n**post** `/v1/ask/open`\n\nAsk an open-ended question to the audience and get raw answers\n\n### Parameters\n\n- `audienceId?: string`\n\n- `audiencePrompt?: string`\n\n- `question?: string`\n\n- `questions?: string[]`\n\n- `sampleSize?: 'low' | 'medium' | 'high' | 'very_high'`\n\n### Returns\n\n- `{ data: { answers: { answer: string; confidence: number; }[][]; }; error: null; requestId: string; }`\n\n  - `data: { answers: { answer: string; confidence: number; }[][]; }`\n  - `error: null`\n  - `requestId: string`\n\n### Example\n\n```typescript\nimport OriginalVoices from 'originalvoices';\n\nconst client = new OriginalVoices();\n\nconst response = await client.ask.open();\n\nconsole.log(response);\n```",
+      "## open\n\n`client.ask.open(audienceId?: string, audiencePrompt?: string, networkId?: string, question?: string, questions?: string[], sampleSize?: 'low' | 'medium' | 'high' | 'very_high'): { data: object; error: null; requestId: string; }`\n\n**post** `/v1/ask/open`\n\nAsk an open-ended question to the audience and get raw answers\n\n### Parameters\n\n- `audienceId?: string`\n\n- `audiencePrompt?: string`\n\n- `networkId?: string`\n\n- `question?: string`\n\n- `questions?: string[]`\n\n- `sampleSize?: 'low' | 'medium' | 'high' | 'very_high'`\n\n### Returns\n\n- `{ data: { answers: { answer: string; confidence: number; }[][]; }; error: null; requestId: string; }`\n\n  - `data: { answers: { answer: string; confidence: number; }[][]; }`\n  - `error: null`\n  - `requestId: string`\n\n### Example\n\n```typescript\nimport OriginalVoices from 'originalvoices';\n\nconst client = new OriginalVoices();\n\nconst response = await client.ask.open();\n\nconsole.log(response);\n```",
     perLanguage: {
       typescript: {
         method: 'client.ask.open',
@@ -95,11 +96,12 @@ const EMBEDDED_METHODS: MethodEntry[] = [
       'question: string;',
       'audienceId?: string;',
       'audiencePrompt?: string;',
+      'networkId?: string;',
       "sampleSize?: 'low' | 'medium' | 'high' | 'very_high';",
     ],
     response: '{ data: { choices: { choice: string; percentage: number; }[]; }; requestId: string; }',
     markdown:
-      "## choices\n\n`client.ask.choices(choices: string[], isMultipleChoice: boolean, question: string, audienceId?: string, audiencePrompt?: string, sampleSize?: 'low' | 'medium' | 'high' | 'very_high'): { data: object; requestId: string; }`\n\n**post** `/v1/ask/choices`\n\nAsk a choices question to the audience and get summary and themes\n\n### Parameters\n\n- `choices: string[]`\n\n- `isMultipleChoice: boolean`\n\n- `question: string`\n\n- `audienceId?: string`\n\n- `audiencePrompt?: string`\n\n- `sampleSize?: 'low' | 'medium' | 'high' | 'very_high'`\n\n### Returns\n\n- `{ data: { choices: { choice: string; percentage: number; }[]; }; requestId: string; }`\n\n  - `data: { choices: { choice: string; percentage: number; }[]; }`\n  - `requestId: string`\n\n### Example\n\n```typescript\nimport OriginalVoices from 'originalvoices';\n\nconst client = new OriginalVoices();\n\nconst response = await client.ask.choices({\n  choices: ['x', 'x'],\n  isMultipleChoice: true,\n  question: 'x',\n});\n\nconsole.log(response);\n```",
+      "## choices\n\n`client.ask.choices(choices: string[], isMultipleChoice: boolean, question: string, audienceId?: string, audiencePrompt?: string, networkId?: string, sampleSize?: 'low' | 'medium' | 'high' | 'very_high'): { data: object; requestId: string; }`\n\n**post** `/v1/ask/choices`\n\nAsk a choices question to the audience and get summary and themes\n\n### Parameters\n\n- `choices: string[]`\n\n- `isMultipleChoice: boolean`\n\n- `question: string`\n\n- `audienceId?: string`\n\n- `audiencePrompt?: string`\n\n- `networkId?: string`\n\n- `sampleSize?: 'low' | 'medium' | 'high' | 'very_high'`\n\n### Returns\n\n- `{ data: { choices: { choice: string; percentage: number; }[]; }; requestId: string; }`\n\n  - `data: { choices: { choice: string; percentage: number; }[]; }`\n  - `requestId: string`\n\n### Example\n\n```typescript\nimport OriginalVoices from 'originalvoices';\n\nconst client = new OriginalVoices();\n\nconst response = await client.ask.choices({\n  choices: ['x', 'x'],\n  isMultipleChoice: true,\n  question: 'x',\n});\n\nconsole.log(response);\n```",
     perLanguage: {
       typescript: {
         method: 'client.ask.choices',
