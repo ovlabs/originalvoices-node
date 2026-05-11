@@ -111,6 +111,8 @@ export interface AskChoicesParams {
 
   audiencePrompt?: string;
 
+  networkId?: string;
+
   sampleSize?: 'low' | 'medium' | 'high' | 'very_high';
 }
 
@@ -118,6 +120,8 @@ export interface AskOpenParams {
   audienceId?: string;
 
   audiencePrompt?: string;
+
+  networkId?: string;
 
   question?: string;
 
