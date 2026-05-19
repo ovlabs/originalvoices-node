@@ -1,7 +1,6 @@
 import fs from 'fs';
 import type { ResponseLike } from 'originalvoices/internal/to-file';
 import { toFile } from 'originalvoices/core/uploads';
-import { File } from 'node:buffer';
 
 class MyClass {
   name: string = 'foo';
