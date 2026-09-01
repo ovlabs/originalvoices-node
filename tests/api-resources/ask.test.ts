@@ -30,8 +30,9 @@ describe('resource ask', () => {
       choices: ['x', 'x'],
       isMultipleChoice: true,
       question: 'x',
-      audienceId: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
+      audienceId: 'x',
       audiencePrompt: 'audiencePrompt',
+      networkId: 'x',
       sampleSize: 'low',
     });
   });
@@ -54,8 +55,9 @@ describe('resource ask', () => {
     await expect(
       client.ask.open(
         {
-          audienceId: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
+          audienceId: 'x',
           audiencePrompt: 'audiencePrompt',
+          networkId: 'x',
           question: 'x',
           questions: ['x'],
           sampleSize: 'low',
