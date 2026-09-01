@@ -1,5 +1,33 @@
 # Changelog
 
+## 0.15.0 (2026-09-01)
+
+Full Changelog: [v0.14.6...v0.15.0](https://github.com/ovlabs/originalvoices-node/compare/v0.14.6...v0.15.0)
+
+### Features
+
+* **api:** api update ([467a72d](https://github.com/ovlabs/originalvoices-node/commit/467a72dc73d13d4a9d63a067c283ff746d2f83b5))
+* **api:** api update ([ccbd7ba](https://github.com/ovlabs/originalvoices-node/commit/ccbd7ba2edb0c7034753a3998efdea591eae5d28))
+* support setting headers via env ([21d20fd](https://github.com/ovlabs/originalvoices-node/commit/21d20fd89a504fccafef6954fe35f4d06dd8d2de))
+
+
+### Bug Fixes
+
+* **client:** send content-type header for requests with an omitted optional body ([d9ce1a1](https://github.com/ovlabs/originalvoices-node/commit/d9ce1a1192714f58a351c4e505a0bb463fb81e82))
+* **typescript:** upgrade tsc-multi so that it works with Node 26 ([46047ee](https://github.com/ovlabs/originalvoices-node/commit/46047eebbd5040b7f48b2b47d8ab60c0e4239a48))
+
+
+### Chores
+
+* avoid formatting file that gets changed during releases ([b4a55dd](https://github.com/ovlabs/originalvoices-node/commit/b4a55dd0766653c1457d2ce4bc9c47067d743ec2))
+* **format:** run eslint and prettier separately ([8f4d3f6](https://github.com/ovlabs/originalvoices-node/commit/8f4d3f622b649cd3c62ed391ea5248621cb510b6))
+* **internal:** codegen related update ([f52a997](https://github.com/ovlabs/originalvoices-node/commit/f52a99751618ec52846f7da320f69bc864e117ff))
+* **internal:** codegen related update ([85d6cca](https://github.com/ovlabs/originalvoices-node/commit/85d6ccaa17175a7ecc61754a9a9996b7f234823a))
+* **internal:** more robust bootstrap script ([dc7fe11](https://github.com/ovlabs/originalvoices-node/commit/dc7fe1180403fd971f69adfa6b076dd3b0b7cf77))
+* redact api-key headers in debug logs ([b723787](https://github.com/ovlabs/originalvoices-node/commit/b7237877624bb7df4dce53e59ad035c1f44ce19d))
+* restructure docs search code ([9a8ec72](https://github.com/ovlabs/originalvoices-node/commit/9a8ec7230fad5ed23d8fd0a88da04fef68030db7))
+* **tests:** remove redundant File import ([5a0c562](https://github.com/ovlabs/originalvoices-node/commit/5a0c5629cdc4c5c6651621b196f4d2dd730c5753))
+
 ## 0.14.6 (2026-04-10)
 
 Full Changelog: [v0.14.5...v0.14.6](https://github.com/ovlabs/originalvoices-node/compare/v0.14.5...v0.14.6)
